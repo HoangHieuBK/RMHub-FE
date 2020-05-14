@@ -1,0 +1,46 @@
+dx-tree-list {
+  .dx-treelist-headers {
+    .dx-treelist-table {
+      .dx-row > td {
+        background-color: $table-heade-bg;
+        color: $color-black;
+        font-size: $table-head-fz;
+        border-color: $table-row-border-color;
+        font-weight: $table-row-font-weight;
+      }
+    }
+  }
+  .dx-treelist-rowsview {
+    .dx-row {
+      &.dx-selection {
+        & > td {
+          background-color: $color-node-treeview-focused !important;
+        }
+      }
+    }
+    .dx-row-focused {
+      td {
+        background-color: initial !important;
+        color: initial !important;
+      }
+    }
+  }
+  &:focus-within .dx-treelist-borders {
+    &>.dx-treelist-headers {
+      border-top: 1px solid $color-base;
+      border-left: 1px solid $color-base;
+      border-right: 1px solid $color-base;
+    }
+    &>.dx-treelist-rowsview {
+       border-bottom: 1px solid $color-base;
+       border-left: 1px solid $color-base;
+       border-right: 1px solid $color-base;
+     }
+    &>.dx-treelist-total-footer {
+      border-bottom: 1px solid $color-base;
+      border-left: 1px solid $color-base;
+      border-right: 1px solid $color-base;
+    }
+
+  }
+}

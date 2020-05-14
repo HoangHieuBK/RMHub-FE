@@ -1,0 +1,401 @@
+{
+    "ResponseHandler": {
+        "Title": "Hiba",
+        "RequestError": "Kérés hiba. Vegye fel a kapcsolatot a rendszergazdával.",
+        "HttpStatus400": "Hiba: 400. Rossz lekérés.",
+        "HttpStatus401": "Hiba: 401. Belépés nem engedélyezett.",
+        "HttpStatus403": "Hiba: 403. Belépésre nem jogosult.",
+        "HttpStatus404": "Hiba: 404. Az objektum nem található.",
+        "HttpStatus500": "Hiba: 500. Hiba történt. Vegye fel a kapcsolatot a rendszergazdával.",
+        "HttpStatus502": "Hiba: 502. Rossz átájáró. Vegye fel a kapcsolatot a rendszergazdával."
+    },
+    "Common": {
+        "List": {
+            "Showing": "Megjelenítése",
+            "record": "bejegyzés megjelenítése",
+            "placeHolder": "Keresés az eszköz neve alapján",
+            "REFRESH": "FRISSÍTÉS",
+            "No": "Sorszám",
+            "DeviceName": "Eszköz Neve",
+            "DeviceStatus": "Eszköz Állapota",
+            "RegistrationStatus": "Regisztráció Állapota",
+            "LastUpdate": "Utolsó Frissítés",
+            "Action": "Művelet",
+            "show": "",
+            "to": "-",
+            "of": " bejegyzés megjelenítése a ",
+            "records": "-ból",
+            "noSearchResult": "Nincs keresési eredmény",
+            "noRecordShown": "Nincs megjelenítendő bejegyzés ",
+            "Status": {
+                "Active": "Aktív",
+                "Inactive": "Inaktív"
+            },
+            "Registration": {
+                "Registered": "Regisztrált",
+                "Unregistered": "Nem Regisztrált"
+            }
+        },
+        "Detail": {
+            "ConnectionInformation": "Csatlakozási Információk",
+            "PhysicalAddress": "Fizikai cím",
+            "LogicalAddress": "Logikai cím",
+            "DeviceInformation": "Eszköz Információ",
+            "DeviceStatus": "Eszköz Állapota",
+            "Km_m": "Km + m érték a nulla ponttól",
+            "RegistrationStatus": "Regisztráció Állapota",
+            "GPSCoordinate": "GPS Koordináta",
+            "GPSLatitude": "GPS Szélesség",
+            "MotorwayManagementStation": "Autópálya Mérnökség",
+            "GPSLongitude": "GPS Hosszúság",
+            "LastUpdate": "Utolsó Frissítés",
+            "BACK": "VISSZA",
+            "DELETE": "TÖRLÉS"
+        },
+        "Popup": {
+            "Popup_Duplicate_Coordinate": {
+                "title": "Duplikált GPS koordináták",
+                "content": "A {{Device_name}} nevű eszköz már hozzá van rendelve ezekhez a GPS koordinátákhoz. Kérem, ellenőrizze.",
+                "textYes": "OK"
+            }
+        }
+    },
+    "Traffic": {
+        "List": {
+            "BEGINPAGEHEADER": "FORGALOMSZÁMLÁLÓ ESZKÖZÖK LISTÁJA",
+            "TrafficLogger": "Forgalomszámláló",
+            "TrafficLoggerDeviceList": "Forgalomszámláló EszkÖzÖk Listája"
+        },
+        "Detail": {
+            "BeginPageHeaderDetail": "FORGALOMSZÁMLÁLÓ ESZKÖZ RÉSZLETES ADATAI",
+            "TrafficLogger": "Forgalomszámláló",
+            "TrafficLoggerDevice": "Forgalomszámláló EszkÖzÖk Listája",
+            "TrafficLoggerDeviceDetail": "Forgalomszámláló EszkÖz Részletes Adatai"
+        },
+        "Alert": {
+            "Header": "FORGALOMSZÁMLÁLÓ RIASZTÁS BEÁLLÍTÁSA",
+            "Link-TL": "Forgalomszámláló",
+            "Link-TL-Alert": "Forgalomszámláló riasztás beállítása",
+            "TL-Alert": "Forgalomszámláló riasztás beállítása",
+            "Description": "Forgalmi riasztás leírása",
+            "SpeedRange": "Sebességtartomány a riasztás aktiválásához",
+            "Level": "Szint",
+            "Select": "Kiválasztás",
+            "AddAlertButton": "Új Riasztás Hozzáadása",
+            "Submit": "ELKÜLDÉS",
+            "Cancel": "MÉGSE"
+        },
+        "MarkerInfo": {
+            "time": "Frissítve:",
+            "flow1min": "Áthaladt járművek száma 1 percenként",
+            "averageSpeed": "Átlagos sebesség 1 percenként",
+            "occupationRate": "Sávtelítettség 1 percenként",
+            "communication": "Kommunikáció",
+            "power": "Áram",
+            "system": "Rendszer",
+            "normal": "Normál",
+            "error": "Hiba"
+        },
+        "Validation-Alert-Form": {
+            "required": "A (*) mező kitöltése kötelező",
+            "invalidFormat": "Hibás formátum. Kérem, ellenőrizze",
+            "minGreaterMax": "A Max értéknek nagyobbnak kell lennie, mint a Min érték",
+            "minSpeed": "A minimális sebesség nem lehet 0-nál alacsonyabb",
+            "maxSpeed": "Nem lehet beírni 1000-nél nagyobb értéket",
+            "levelDuplicate": "Ez a szint már létezik",
+            "speedOverlap": "A riasztási intervallumok nem fedhetik egymást",
+            "maxLengthDescription": "A mező maximális hossza 50",
+            "maxLengthMinMax": "A mező maximális hossza 4"
+        },
+        "Alert-Popup": {
+            "title": "Új riasztási hiba",
+            "id": "alertPopUp",
+            "content": "Legfeljebb három riasztás állítható be.",
+            "content-sync": "Időtúllépés az eszköz szinkronizálása közben",
+            "textYes": "OK"
+        }
+    },
+    "Weather-Station": {
+        "List": {
+            "Header": "METEROLÓGIAI ÁLLOMÁSOK LISTÁJA",
+            "Link-WS": "Meteorológiai állomás",
+            "Link-WS-List": "Meterológiai Állomások Listája"
+        },
+        "Detail": {
+            "Header": "METEROLÓGIAI ÁLLOMÁS RÉSZLETI",
+            "Link-WS": "Meteorológiai állomás",
+            "Link-WS-List": "Meterológiai Állomások Listája",
+            "Link-WS-Detail": "Meterológiai Állomás Részleti"
+        },
+        "Alert": {
+            "Header": "METEROLÓGIAI ÁLLOMÁS RIASZTÁSAI",
+            "Link-WS": "Meteorológiai állomás",
+            "Link-WS-Alert": "Meterológiai Állomás Riasztásai",
+            "AlertName": "Riasztás neve",
+            "Content": "Tartalom",
+            "Condition": "Állapot",
+            "Value": "Érték",
+            "Level": "Szint",
+            "AddAlertButton": "Új Riasztás Hozzáadása",
+            "Select": "Kiválasztás",
+            "Submit": "ELKÜLDÉS",
+            "Cancel": "MÉGSE",
+            "Alert_Code": {
+                "ALR_WIND_LEVEL1": "Szélerősség 1-es szint",
+                "ALR_WIND_LEVEL2": "Szélerősség 2-es szint",
+                "ALR_ES_LVL1_WET_TRANSITIONAL": "Nedves átmeneti V = 1",
+                "ALR_ES_LVL2_HUMID": "Párás V = 2",
+                "ALR_ES_LVL3_WET": "Nedves V = 3",
+                "ALR_ES_LVL4_STREAMING_RAIN": "Esőfolyam V = 4",
+                "ALR_ES_LVL5_WHITE_FROZEN": "Fehér és fagyott V = 5",
+                "ALR_ES_LVL6_FROSTY": "Fagyos V = 6",
+                "ALR_ES_LVL7_ICY": "Jeges V = 7",
+                "ALR_ES_LVL8_SLEET": "Ónos eső V = 8",
+                "ALR_ES_LVL9_HAILED": "Jégeső V = 9",
+                "ALR_ES_LVL10_FRESH_SNOW": "Friss hó V = 10",
+                "ALR_ES_LVL11_MELTING_SNOW": "Olvadó hó V = 11",
+                "ALR_ES_LVL12_PACKED_SNOW": "Tömörödött hó V = 12",
+                "ALR_ES_LVL13_ICE_FROZEN": "Jeges lefagyott felszín V = 13",
+                "ALR_ES_LVL14_FROZEN_SNOW": "Fagyott hó V = 14",
+                "ALR_ES_LVL15_GRANULAR_SNOW": "Szemcsés hó V = 15",
+                "ALR_ES_LVL16_SNOWDRIFTS": "Hófúvás V = 16"
+            },
+            "Alert_Content": {
+                "ALR_WIND_LEVEL1": "Szélsebesség >= 80km/h",
+                "ALR_WIND_LEVEL2": "Szélsebesség >= 100km/h",
+                "ALR_ES_LVL1_WET_TRANSITIONAL": "Nedves átmeneti",
+                "ALR_ES_LVL2_HUMID": "Párás",
+                "ALR_ES_LVL3_WET": "Nedves",
+                "ALR_ES_LVL4_STREAMING_RAIN": "Esőfolyam",
+                "ALR_ES_LVL5_WHITE_FROZEN": "Fehér és fagyott",
+                "ALR_ES_LVL6_FROSTY": "Fagyos",
+                "ALR_ES_LVL7_ICY": "Jeges",
+                "ALR_ES_LVL8_SLEET": "Ónos eső",
+                "ALR_ES_LVL9_HAILED": "Jégeső",
+                "ALR_ES_LVL10_FRESH_SNOW": "Friss hó",
+                "ALR_ES_LVL11_MELTING_SNOW": "Olvadó hó",
+                "ALR_ES_LVL12_PACKED_SNOW": "Tömörödött hó",
+                "ALR_ES_LVL13_ICE_FROZEN": "Jeges, lefagyott felszín",
+                "ALR_ES_LVL14_FROZEN_SNOW": "Fagyott hó",
+                "ALR_ES_LVL15_GRANULAR_SNOW": "Szemcsés hó",
+                "ALR_ES_LVL16_SNOWDRIFTS": "Hófúvás"
+            }
+        },
+        "Validation-Alert-Form": {
+            "maxLength": "A mező maximális hossza 5",
+            "required": "A (*) mező kitöltése kötelező",
+            "invalidFormat": "Hibás formátum. Kérem, ellenőrizze",
+            "error": "A 2-es szintű szélsebesség riasztási értéke nagyobb kell legyen, mint az 1-es szint értéke",
+            "MES_Condition": "Ne engedélyezze a 2-es szélsebesség riasztás beállítását a „<=” operátorral",
+            "DuplicateValue": "Duplikált értékek nem megengedettek",
+            "ExceedValue": "Nem lehet beírni 1000-nél nagyobb értéket"
+        },
+        "Popup-Info": {
+            "Update_Time": "Frissítve:",
+            "Surface_Temperature": "Felületi hőmérséklet",
+            "Surface_Status": "Felület állapota",
+            "Freezing_Temperature": "Fagyponti hőmérséklet",
+            "Water_Film_Height": "Vízréteg vastagsága",
+            "Air_Temperature": "Levegő hőmérséklet",
+            "Air_Humidity": "Levegő páratartalma",
+            "Dew_point_Temperature": "Harmatponti hőmérséklet",
+            "Precipitation_Height": "Csapadék mennyisége",
+            "Wind_Speed_Avg": "Szélsebesség (átlag 10 perc)",
+            "Wind_Speed_Max": "Szélsebesség (max. 10 perc)",
+            "Type_of_Precipitation": "Csapadék típusa",
+            "Intensity_of_Precipitation": "Csapadék intenzitása",
+            "Wind_Direction": "Szélirány",
+            "Atmospheric_Pressure": "Légköri nyomás",
+            "Winter_Conditions_Warning": "Téli Időjárás Figyelmeztetés",
+            "Winter_Precipitations_Warning": "Téli Csapadék Figyelmeztetés",
+            "Communication": "Kommunikáció",
+            "Gate_Open": "Ajtó Nyitás",
+            "Door_Alarm": "Ajtó Riasztás",
+            "Power_Default": "Tápellátás",
+            "Show_more": "Részletek"
+        }
+    },
+    "Notifier": {
+        "Device-Setting": {
+            "delete-success": "Az eszköz sikeresen eltávolítva a térképről"
+        },
+        "Alert-Setting": {
+            "add-success": "Riasztás beállítása sikeres",
+            "delete-success": "Riasztás törlése sikeres",
+            "edit-success": "Riasztás frissítése sikeres"
+        }
+    },
+    "Confirm-Popup": {
+        "title_device": "Eltávolítás",
+        "tooltip": "Eltávolítás a térképről",
+        "title_alert": "Riasztás törlése",
+        "title_dupplicateGps": "Duplikált GPS koordináták",
+        "content_device": "Biztos, hogy eltávolítja a térképről?",
+        "content_alert": "Biztosan törli ezt a riasztást?",
+        "content_dupplicateGps": "A {{Device_name}} nevű eszköz már hozzá van rendelve ezekhez a GPS koordinátákhoz. Kérem, ellenőrizze.",
+        "textYes": "MEGERŐSÍTÉS",
+        "textYes_dupplicateGps": "OK",
+        "textNo": "MÉGSE"
+    },
+    "Pagination": {
+        "previousLabel": "Vissza",
+        "nextLabel": "Következő"
+    },
+    "Common_Validator": {
+        "maxLength": "A mező maximális hossza {{maxLength}}",
+        "required": "A (*) mező kitöltése kötelező",
+        "pattern": "Hibás formátum. Kérem, ellenőrizze",
+        "min_max": "Az értéknek {{min}} és {{max}} között kell lennie"
+    },
+    "Map": {
+        "Set_Location": "Pozíció beállítása",
+        "longitude": " Hosszúsági fok",
+        "latitude": "Szélességi fok",
+        "zoom_level": "Nagyítási érték",
+        "map_note": {
+            "technical_issue": "Műszaki probléma",
+            "normal_state": "Normál állapot",
+            "error_state": "Hibás állapot"
+        },
+        "map_menu": {
+            "m44": "m44",
+            "traffic": "Forgalom",
+            "weather": "Időjárás"
+        },
+        "Popup_Set_Location": {
+            "Title_Popup": "VÁLASSZON ESZKÖZT",
+            "Search_Holder": "Keresés az eszköz neve alapján",
+            "Button_Save": "MENTÉS"
+        },
+        "Confirm-Popup": {
+            "title": "HELY MEGVÁLTOZTATÁSA",
+            "content": "- már létezik regisztrált pozíció. Biztosan meg akarja változtatni ennek az eszköznek a pozícióját?",
+            "textYes": "MEGERŐSÍTÉS",
+            "textNo": "MÉGSE"
+        },
+        "Location": {
+            "m44_highway": "M44 AUTÓPÁLYA"
+        },
+        "Notifier": {
+            "Change_Location_Success": "Pozíció sikeresen frissítve",
+            "Set_Location_Success": "Pozíció beállítása sikeres"
+        },
+        "Confirm_Popup_Error": {
+            "title": "Pozíció beállítási hiba",
+            "content": "Nem található a megfigyelt útszakasz. Kérjük, állítson be egy helyet az úthoz közelebb.",
+            "textYes": "OK"
+        },
+        "zoomInTitle": "Nagyítás",
+        "zoomOutTitle": "Kicsinyítés",
+        "Validator": {
+            "OutOfRange_Value": "Az értéknek {{min_value}} és {{max_value}} között kell lennie",
+            "Duplicate_Value": "A {{Device_name}} nevű eszköz már hozzá van rendelve ezekhez a GPS koordinátákhoz. Kérem, ellenőrizze."
+        },
+        "errorRouteRequest" : "Kérés hiba. Vegye fel a kapcsolatot a rendszergazdával."
+    },
+    "Menu": {
+        "left_menu": {
+            "map_view": "Térkép Nézet",
+            "weather_station": {
+                "title_parent": "Meteorológiai állomás",
+                "WS_List": "Meterológiai Eszközök Listája",
+                "WS_Alert": "Meterológiai Riasztások"
+            },
+            "traffic_logger": {
+                "title_parent": "Forgalomszámláló",
+                "TL_List": "Forgalomszámlálók Listája",
+                "TL_Alert": "Forgalmi Riasztások"
+            }
+        },
+        "top_menu": {
+            "location": "Elhelyezkedés",
+            "time_date": "Idő és dátum",
+            "automatic_disconnect": "Automatikus Lecsatlakozás"
+        }
+    },
+    "Grid_Message": {
+        "NoSearchResult": "Nincs keresési eredmény",
+        "NoRecordsShown": "Nincs megjelenítendő bejegyzés "
+    },
+    "MesureDataWeather": {
+        "surfaceStatus": {
+            "dry": "Száraz",
+            "wetTransitional": "Átmeneti nedvesség",
+            "humid": "Párás",
+            "wet": "Nedves",
+            "streamingRain": "Esőfolyam",
+            "whiteAndFrozen": "Fehér és fagyott",
+            "frosty": "Fagyos",
+            "icy": "Jeges",
+            "sleet": "Ónos eső",
+            "hailed": "Jégeső",
+            "freshSnow": "Friss hó",
+            "meltingSnow": "Olvadó hó",
+            "packedSnow": "Tömörödött hó",
+            "iceWithFrozenSurface": "Jeges, lefagyott felszín",
+            "frozenSnow": "Fagyos hó",
+            "granularSnow": "Szemcsés hó",
+            "snowdrifts": "Hófúvás"
+        },
+        "typeOfPrecipitation": {
+            "no": "Nincs",
+            "mist": "Köd",
+            "drizzle": "Szitálás",
+            "rain": "Eső",
+            "hail": "Jégeső",
+            "sleet": "Ónos eső",
+            "meltedPrecipitation": "Megolvadt csapadék",
+            "drySnow": "Száraz hó",
+            "moistSnow": "Nyirkos hó",
+            "wetSnow": "Nedves hó"
+        },
+        "intensityOfPrecipitation": {
+            "no": "Nincs",
+            "veryLightRain": "Nagyon enyhe eső",
+            "light": "Enyhe",
+            "moderateRain": "Mérsékelt eső",
+            "strongRain": "Erős esőzés"
+        },
+        "windDirection": {
+            "north": "Észak",
+            "northEast": "Északkelet",
+            "east": "Kelet",
+            "southEast": "Délkelet",
+            "south": "Dél",
+            "southWest": "Délnyugat",
+            "west": "Nyugat",
+            "northWest": "Északnyugat"
+        },
+        "winterConditionsWarning": {
+            "off": "KI",
+            "on": "BE"
+        },
+        "winterPrecipitationsWarning": {
+            "off": "KI",
+            "on": "BE"
+        },
+        "communication": {
+            "off": "Normál",
+            "on": "Hiba"
+        },
+        "gateOpen": {
+            "off": "Normál",
+            "on": "Hiba"
+        },
+        "powerDefault": {
+            "off": "Normál",
+            "on": "Hiba"
+        }
+    },
+    "MesureDataTraffic": {
+        "communication": {
+            "error": "Hiba",
+            "normal": "Normál"
+        }
+    },
+    "Text_Common": {
+        "Cancel_Text": "Mégse",
+        "Save_Text": "Mentés",
+        "Edit_Text": "Szerkesztés"
+    }
+}

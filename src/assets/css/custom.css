@@ -1,0 +1,93 @@
+/* here you can put your own css to customize and override the theme */
+
+/***
+Rounded Portlets
+***/
+/*
+.portlet {
+	border-radius: 4px !important;
+}
+
+.portlet .portlet-title {
+	border-radius: 4px 4px 0px 0px !important;
+}
+
+.portlet .portlet-body,
+.portlet .portlet-body .form-actions  {
+	border-radius: 0px 0px 4px 4px !important;
+}
+*/
+
+/*
+Change Quick Sidebar Width
+*/
+
+/*
+.page-quick-sidebar-wrapper {
+  right: -370px;
+  width: 370px;
+}
+
+.page-quick-sidebar-open.page-quick-sidebar-push-content .page-sidebar-wrapper {
+  margin-left: -370px;
+}
+
+.page-quick-sidebar-open.page-quick-sidebar-push-content .page-footer {
+  margin-right: 370px;
+  margin-left: -370px;
+}
+
+.page-sidebar-reversed.page-quick-sidebar-open.page-quick-sidebar-push-content .page-sidebar-wrapper {
+  margin-right: 370px;
+}
+
+.page-quick-sidebar-open.page-quick-sidebar-push-content.page-quick-sidebar-full-height .page-header {
+  margin-left: -370px;
+}
+
+.page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-list {
+  width: 370px !important;
+}
+
+.page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-item {
+  width: 370px !important;
+  margin-left: 370px;
+}
+
+.page-quick-sidebar-wrapper .page-quick-sidebar .page-quick-sidebar-content-item-shown .page-quick-sidebar-list {
+  margin-left: -370px;
+}
+*/
+.page-sidebar .page-sidebar-menu .open-sub-menu,
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .open-sub-menu {
+    display: block ;
+}
+
+/* .my-pagination /deep/ .ngx-pagination li a {
+    padding: 8px 14px;
+    margin-left: -1px;
+    color: #337ab7;
+    border: 1px solid #d3d3d3;
+    border-left: none;
+    text-decoration: none;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    padding: 8px 14px;
+    margin-left: -1px;
+    border: 1px solid #2199e8 !important;
+    color: #d3d3d3 !important;
+}
+
+.my-pagination /deep/ .ngx-pagination li:first-child a {
+    border-left: 1px solid #d3d3d3;
+}
+
+.my-pagination /deep/ .ngx-pagination .disabled {
+    color: #cacaca;
+    cursor: default;
+    padding: 8px 12px;
+    border: 1px solid #d3d3d3;
+    margin-left: -1px;
+    cursor: not-allowed;
+} */

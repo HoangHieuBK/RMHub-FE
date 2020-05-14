@@ -1,0 +1,89 @@
+<!-- BEGIN Portlet PORTLET-->
+<div class="portlet box green-haze popup-vms"
+   [ngClass]="typeActive === 'green' ? 'popup-vms-green' : 'popup-vms-black'">
+   <!-- BEGIN HEADER -->
+   <div class="popup-header" [ngClass]="{'green': typeActive === 'green', 'black': typeActive ==='black'}">
+      <div class="popup-header-title-text">
+         <span class="popup-header-text">{{codeVms}}</span>
+      </div>
+      <div class="popup-header-title-icon">
+         <!-- <span "></span> -->
+         <img class="popup-header-icon-popup icon-info-vms" data-toggle="modal" data-target="#modalInformation"
+            (click)="openInforVMS.emit(markerData)" src="/assets/img/icon-info.png" alt="">
+         <!-- <span ></span> -->
+         <img class="popup-header-icon-popup icon-info-vms" data-toggle="modal" data-target="#modalEditVms"
+            (click)="openEditVMS.emit(markerData)" src="/assets/img/icon-edit.png" alt="">
+         <!-- <span ></span> -->
+         <img class="popup-header-icon-popup icon-close-popup" (click)="onClosePopup()" src="/assets/img/icon-close.png"
+            alt="">
+      </div>
+   </div>
+   <!-- END HEADER -->
+   <!-- --------- -->
+   <!-- BEGIN BODY -->
+   <div class="portlet-body">
+      <div class="map-vms-content">
+         <table *ngIf="typeActive === 'green' || typeActive === ''" class="table table-bordered">
+            <tr>
+               <td rowspan="3" class="text-center width-img">
+                  <img data-toggle="modal" href="#basic3" src="{{markerData.vmsData.imgL}}" alt="">
+               </td>
+               <td>
+                  <span class="text-uppercase">{{markerData.vmsData.input1}}</span>
+               </td>
+               <td rowspan="3" class="text-center width-img">
+                  <img src="{{markerData.vmsData.imgR}}" alt="">
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <span class="text-uppercase"> {{markerData.vmsData.input2}}</span>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <span class="text-uppercase">{{markerData.vmsData.input3}}</span>
+               </td>
+            </tr>
+         </table>
+
+         <table *ngIf="typeActive === 'black'" class="table table-bordered">
+            <tr>
+               <td rowspan="3" class="text-center width-img">
+                  <img *ngIf="markerData.vmsData.imgL == '../../../assets/img/img-camera.png' else images1"
+                     src='http://c10.labocom.fr/pcpmv/XML/referentiel/images/mivisu/base/TGG_64_eteint.PNG'>
+                  <ng-template #images1>
+                        <img src="{{markerData.vmsData.imgL}}">
+                  </ng-template>
+                  
+               </td>
+               <td class="text-uppercase">
+                  &nbsp; {{markerData.vmsData.input1}}
+               </td>
+               <td rowspan="3" class="text-center width-img">
+                     <img *ngIf="markerData.vmsData.imgR == '../../../assets/img/img-camera.png' else images2"
+                     src='http://c10.labocom.fr/pcpmv/XML/referentiel/images/mivisu/base/TGG_64_eteint.PNG'>
+                  <ng-template #images2>
+                        <img src="{{markerData.vmsData.imgR}}">
+                  </ng-template>
+               </td>
+            </tr>
+            <tr>
+               <td class="text-uppercase">
+                  <span> &nbsp; {{markerData.vmsData.input2}}</span>
+               </td>
+            </tr>
+            <tr>
+               <td class="text-uppercase">
+                  &nbsp; {{markerData.vmsData.input3}}
+               </td>
+            </tr>
+         </table>
+      </div>
+      <div class="map-vms-footer">
+         <label class="vms-time pull-left vms-time-left">Night</label>
+         <label class="vms-time pull-right vms-time-right">F</label>
+      </div>
+   </div>
+   <!-- END BODY -->
+</div>

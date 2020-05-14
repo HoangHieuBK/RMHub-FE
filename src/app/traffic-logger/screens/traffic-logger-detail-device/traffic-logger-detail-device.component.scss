@@ -1,0 +1,49 @@
+.page-title {
+    font-weight: bold;
+}
+
+.text-font {
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: pointer;
+}
+
+.text-font {
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: pointer;
+}
+
+.btn {
+    padding: 10px 35px;
+}
+
+.distance {
+    box-sizing: border-box;
+}
+
+.row.vDivide:after {
+    background: #e0e0e0;
+    width: 1px;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -25px;
+    margin-bottom: 15px;
+}
+
+.form-col-two {
+    margin-left: 50px;
+}
+
+.line-align {
+    margin-right: -50px;
+}
+
+.nohover {
+    cursor: default;
+}

@@ -1,0 +1,28 @@
+::ng-deep .mat-form-field-wrapper {
+   transform: translate(0, -12px);
+}
+::ng-deep .mat-form-field-wrapper button {
+   display: none;
+}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+   background-color: white;
+}
+::ng-deep .mat-form-field-underline {
+   width: 0px !important;
+}
+::ng-deep .mat-datepicker-content, .mat-calendar {
+   width: 296px !important;
+   height: 315px !important;
+}
+::ng-deep .cdk-overlay-pane {
+   transform: translate(0, 8px) !important;
+   margin-left: -9px !important;
+}
+mat-datePicker-img {
+    position: absolute;
+    right: 30px;
+    top: 41px;
+}
+mat-form-field {
+   width: 100%;
+}

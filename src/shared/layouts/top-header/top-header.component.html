@@ -1,0 +1,193 @@
+<div class="top-header">
+    <!-- begin header-right -->
+    <div class="top-header-left">
+        <!-- location area -->
+        <div class="location">
+            <div class="dropdown">
+                <div class="text-header-down">
+                    <div class="text-header-up change-background">
+                        <span class="title-location"> {{'Menu.top_menu.location' | translate}}</span>
+                    </div>
+                    <a class="dropdown-toggle disabled change-background txt-content-transform" style="cursor: default" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{currentLocation?.name | translate}}
+                        <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                    </a>
+                    <div class="dropdown-menu location-dropdown" aria-labelledby="dropdownMenuButton">
+                        <ng-container *ngFor="let location of dropDownLocation let i=index">
+                            <a class="dropdown-item"
+                                (click)="changeLocation(location.id)">{{location.name | translate}}</a>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end location area -->
+
+        <!-- time & date area -->
+        <div>
+            <div class="text-header-up">
+                <span class="title-timedate">{{'Menu.top_menu.time_date' | translate}}</span>
+            </div>
+            <div class="text-header-down">
+                <div class="time-date-content">{{timeDate | date: commonConstant.FORMAT_DATE_FORM }}</div>
+            </div>
+        </div>
+        <!-- end time & date area -->
+        <!-- <div class="count">
+            <span class="section-count">
+                <span class="time-count">{{'Menu.top_menu.automatic_disconnect' | translate}}</span>
+                {{DateFormat(timer)}}
+            </span>
+        </div> -->
+    </div>
+
+    <!-- begin header-right -->
+    <div class="top-header-right">
+        <div class="header-right">
+            <div>
+                <div class="dropdown">
+                    <div class="mega-menu-dropdown">
+                        <div class="admin dropdown-toggle disabled change-background" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="ad-hover">
+                                <span class="text-language">Administrator</span>
+                                <i class="fa fa-sort-desc color-icon" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="dropdown-menu pull-right admin-dropdown" aria-labelledby="dropdownMenuButton">
+                            <a routerLink="/profile-user">
+                                <img src="assets/icon/user-profile.png" alt="" />
+                                <span> My Profile</span>
+                            </a>
+                            <a>
+                                <img src="assets/icon/change-password.png" alt="" />
+                                <span> Change Password</span>
+                            </a>
+                            <a (click)="logOut()">
+                                <img src="assets/icon/logout.png" alt="" />
+                                <span> Log Out</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="dropdown">
+                    <a class="dropdown-toggle disabled" style="cursor: default" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="fa fa-bell color-icon" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right notify-dropdown-content">
+                        <li>
+                            <a routerLink="/profile-user">
+                                <i class="icon-user" aria-hidden="true"></i>
+                                My Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="page_calendar.html">
+                                <i class="icon-calendar" aria-hidden="true"></i>
+                                My Calendar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="inbox.html">
+                                <i class="icon-envelope-open" aria-hidden="true"></i>
+                                My Inbox
+                                <span class="badge badge-danger">3 </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="page_todo.html">
+                                <i class="icon-rocket" aria-hidden="true"></i>
+                                My Tasks
+                                <span class="badge badge-success">7 </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="extra_lock.html">
+                                <i class="icon-lock" aria-hidden="true"></i>
+                                Lock Screen
+                            </a>
+                        </li>
+                        <li>
+                            <a (click)="logOut()">
+                                <i class="icon-key" aria-hidden="true"></i>
+                                Log Out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="dropdown">
+                    <a class="dropdown-toggle disabled" style="cursor: default" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <i class="icon-settings color-icon" aria-hidden="true"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right setting-dropdown-content">
+                        <li>
+                            <a routerLink="/profile">
+                                <i class="icon-user" aria-hidden="true"></i>
+                                My Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a href="page_calendar.html">
+                                <i class="icon-calendar" aria-hidden="true"></i> My Calendar </a>
+                        </li>
+                        <li>
+                            <a href="inbox.html">
+                                <i class="icon-envelope-open" aria-hidden="true"></i>
+                                My Inbox
+                                <span class="badge badge-danger">3 </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="page_todo.html">
+                                <i class="icon-rocket" aria-hidden="true"></i>
+                                My Tasks
+                                <span class="badge badge-success"> 7 </span>
+                            </a>
+                        </li>
+                        <li class="divider">
+                        </li>
+                        <li>
+                            <a href="extra_lock.html">
+                                <i class="icon-lock" aria-hidden="true"></i>
+                                Lock Screen
+                            </a>
+                        </li>
+                        <li>
+                            <a (click)="logOut()">
+                                <i class="icon-key" aria-hidden="true"></i>
+                                Log Out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="mega-menu-dropdown language-area">
+                    <a class="language dropdown-toggle change-background" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img [src]="chooseLanguage?.img" class="img-icon img-selected" alt=""><span
+                            class="text-language">
+                            {{chooseLanguage?.name}}</span>
+                        <i class="fa fa-sort-desc color-icon" aria-hidden="true"></i>
+                    </a>
+                    <div class="dropdown-menu pull-right language-dropdown">
+                        <ng-container *ngFor="let language of arrLanguageRest let i = index">
+                            <a class="dropdown-item" (click)="useLanguage(language.code)">
+                                <img [src]="language?.img" class="img-icon" alt="">
+                                <span class="text-language"> {{language.name}} </span>
+                            </a>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end top header -->

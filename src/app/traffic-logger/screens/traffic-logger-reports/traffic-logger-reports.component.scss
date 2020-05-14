@@ -1,0 +1,158 @@
+.content-main > div {
+    display: inline;
+ }
+ .content-main > div {
+    float: left;
+ }
+ .page-title {
+    width: 303px;
+    height: 29px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;/* identical to box height */
+    text-transform: uppercase;
+
+    color: rgba(0, 0, 0, 0.87);
+ }
+ .page-bar {
+    margin-top: -5px;
+    height: 36px;
+    background-color: white;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+ }
+ .page-breadcrumb {
+    padding-left: 0px;
+ }
+ .traffic-logger-title {
+    width: 87px;
+    height: 17px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;/* identical to box height */
+    color: rgba(0, 0, 0, 0.87);
+ }
+ .traffic-report-title {
+    width: 139px;
+    height: 17px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;/* identical to box height */
+    color: #677484;
+ }
+ .content-left {
+    width: 40%;
+ }
+ .content-row-down {
+    margin-top: 15px;
+    margin-bottom: -5px;
+ }
+
+ .title-input {
+    margin-bottom: 5px;
+    height: 17px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.54);
+ }
+
+
+ .content-right {
+    position: relative;
+    right: -47px;
+    overflow: scroll;
+    width: 57%;
+    height: 450px;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+    background-color: #edeff1;
+ }
+ .chart-info {
+    position: relative;
+    left: 55px;
+    height: 50px;
+    width: 90%;
+    background-color: #88a5c3;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+ }
+ .chart-title {
+    background-color: yellow;
+    color: red;
+    padding: 2px;
+ }
+ .chart-area {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+ }
+ .chart-table {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+ }
+ .zoom-chart {
+    border: solid 1px black;
+    width: 225px;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+ }
+ .zoom-chart button {
+    transform: scale(1,0.9);
+ }
+ .animation {
+    width: auto;
+    border: solid 1px #aaa;
+    font-size: 11px;
+    padding-left: 5px;
+    margin-left: 10px;
+    margin-top: 10%;
+ }
+ .vehicle-line {
+    color: red;
+ }
+ .occupation-line {
+    color: green;
+ }
+ .average-line {
+    color: blue;
+ }
+ span.line-chart {
+    display: inline-block;
+    transform: scale(3, 4);
+    margin-right: 5px;
+ }
+ canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+ }
+ @media (max-width: 1560px) {
+    .col-md-3 {width: 33.33%;}
+    .col-md-9 {width: 72.66%;}
+    .animation {
+       width: auto;
+    }
+ }
+ @media (max-width: 1460px) {
+    .table-chart {
+       width: 100%;
+    }
+    .animation {
+       width: 158px;
+       position: relative;
+       top: calc(100% - 190px);
+       left: 43%;
+       margin-top: 70px;
+    }
+ }

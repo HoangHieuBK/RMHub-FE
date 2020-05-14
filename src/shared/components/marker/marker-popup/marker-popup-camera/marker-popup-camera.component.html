@@ -1,0 +1,21 @@
+<div>
+   <div class="portlet box green-haze " [ngClass]="typeActive === 'green' ? 'popup-vms-green' : 'popup-vms-black'">
+      <div class="popup-header" [ngClass]="{'green': typeActive === 'green', 'black': typeActive ==='black'}">
+         <div class="popup-header-title-text">
+            <span class="text-center-cmr">{{titleCamera}}</span>
+         </div>
+         <div class="popup-header-title-icon">
+            <!-- <a href="javascript:;" class="collapse">
+        </a>
+        <a class="icon-close-popup" (click)="onClosePopup()">
+        </a> -->
+            <img class="popup-header-icon-popup" (click)="onClosePopup()"
+               src="/assets/img/icon-close.png" alt="">
+         </div>
+      </div>
+
+      <div class="porlet-body">
+         <iframe [src]='videoLive | mySafe' allow='autoplay'></iframe>
+      </div>
+   </div>
+</div>

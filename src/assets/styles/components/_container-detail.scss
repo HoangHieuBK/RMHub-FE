@@ -1,0 +1,67 @@
+.container-detail,
+.container-search {
+    margin-top: $margin-content;
+    border: 1px solid $container-border-color;
+    &__form {
+        padding: $padding-content;
+        .dx-field-empty-item {
+            height: 0px;
+        }
+    }
+    &:focus-within {
+        border: $border-color-highlight;
+        .toolbarHeader .dx-toolbar-items-container {
+            background-color: $toolbar-detail-background-color-highlight !important;
+        }
+    }
+    .rmhub-card {
+        .dx-toolbar-after {
+            padding-right: $padding-5;
+        }
+        .text-title-header {
+            font-size: $font-size;
+            font-weight: $font-weight-title;
+        }
+        .dx-button {
+            &:focus-within,
+            &.dx-state-hover,
+            &.dx-state-active,
+            &.dx-state-focused {
+                background: $color-base-darker;
+                border-color: $color-base-darker;
+            }
+            &--icon-btn {
+                background-color: $color-white !important;
+                &:focus-within,
+                &.dx-state-hover,
+                &.dx-state-active,
+                &.dx-state-focused {
+                    background: $color-grey-btn-hover !important;
+                    border-color: $color-grey-btn-hover !important;
+                }
+            }
+        }
+        .dx-dropdownmenu {
+            &:focus-within,
+            &.dx-state-hover,
+            &.dx-state-active,
+            &.dx-state-focused {
+                background: $color-base-darker !important;
+            }
+        }
+    }
+    pre {
+        font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Verdana, sans-serif !important;
+    }
+}
+
+.dx-scrollview-content {
+    .dx-item {
+        &:focus-within,
+        &.dx-state-hover,
+        &.dx-state-active,
+        &.dx-state-focused {
+            border-color: $color-base-darker;
+        }
+    }
+}

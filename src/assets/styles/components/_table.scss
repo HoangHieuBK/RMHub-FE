@@ -1,0 +1,193 @@
+.rmhub-table>thead>tr {
+    background: #677484;
+}
+
+.rmhub-table>thead>tr>th,
+.rmhub-table>tbody>tr>td {
+    vertical-align: middle !important;
+    padding: 0px 20px !important;
+}
+
+.rmhub-table>thead>tr>th {
+    color: #ffffff;
+    height: 48px !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    line-height: 19px !important;
+    align-items: center;
+}
+
+.rmhub-table>thead>tr>th:first-child {
+    width: 75px !important;
+    white-space: nowrap;
+    text-align: center;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.rmhub-table>tbody>tr>td:first-child {
+    text-align: center;
+}
+
+.rmhub-table>tbody>tr>td {
+    height: 42px !important;
+    background: #FFFFFF;
+    box-shadow: inset 0px -1px 0px rgba(129, 142, 158, 0.15);
+    font-size: 14px;
+}
+
+.table-select {
+    width: 63px;
+    height: 40px;
+    border-radius: 3px !important;
+    padding-left: 13px;
+}
+
+.icon-edit {
+    width: 32px;
+    height: 32px;
+    background: url("/assets/icon/edit.png") no-repeat;
+    display: block;
+}
+
+.icon-edit:not(.nohover):hover {
+    background: url("/assets/icon/edit-hover.png") no-repeat;
+}
+
+.icon-edit-color {
+    @extend .icon-edit;
+    background: url("/assets/icon/edit-hover.png") no-repeat;
+}
+
+.icon-delete {
+    margin: auto;
+    width: 32px;
+    height: 32px;
+    display: block;
+    background: url("/assets/icon/Vector-2.png") no-repeat;
+}
+
+.icon-delete-color {
+    @extend .icon-delete;
+    background: url("/assets/icon/delete-hover.png") no-repeat;
+}
+
+.icon-delete:not(.nohover):hover {
+    background: url("/assets/icon/delete-hover.png") no-repeat;
+}
+
+.icon-remove {
+    margin: auto;
+    width: 32px;
+    height: 32px;
+    display: block;
+    background: url("/assets/icon/remove-pin-normal.png") no-repeat;
+}
+
+.icon-remove:not(.nohover):hover {
+    background: url("/assets/icon/remove-pin-hover.png") no-repeat;
+}
+
+.icon-save {
+    margin-right: 5px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    background: url("/assets/icon/ic_save_change.png") no-repeat;
+}
+
+.icon-cancel {
+    margin: auto;
+    width: 32px;
+    height: 32px;
+    display: block;
+    background: url("/assets/icon/ic_cancel_change.png") no-repeat;
+}
+
+.cell-value {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.87);
+    margin: auto;
+}
+
+.spa-padding {
+    color: #ADB9C8;
+}
+
+.table-toolbar {
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+}
+
+.devices-header {
+    .no-device {
+        width: 5%
+    }
+    .device-name {
+        width: 20%;
+    }
+    .device-status {
+        width: 20%;
+    }
+    .registration {
+        width: 20%;
+    }
+    .last-update {
+        width: 29%;
+    }
+    .action-th {
+        width: 6%;
+        padding: 0 !important;
+    }
+}
+
+.action-th {
+    text-align: center;
+}
+
+.traffic-alert {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.traffic-jam {
+    @extend .traffic-alert;
+    color: #D81F1F !important;
+}
+
+.traffic-note {
+    @extend .traffic-alert;
+    color: #F49908;
+}
+
+.traffic-normal {
+    @extend .traffic-alert;
+    color: #38AB58;
+}
+
+.no-record {
+    text-align: center;
+    margin: auto;
+    height: 19px;
+    font-family: Roboto;
+    font-size: 16px;
+    line-height: 19px;
+    color: #677484;
+}
+
+.table-fixed-header thead th {
+    position: sticky;
+    top: 0px;
+    background: #677484;
+    z-index: 1;
+}
+
+.table-fixed-header {
+    border-top: none;
+}

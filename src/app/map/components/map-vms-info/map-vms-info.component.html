@@ -1,0 +1,45 @@
+<div class="modal modal-custom" id="modalInformation" role="dialog">
+    <div class="modal-dialog modal-dialog-custom">
+        <div class="portlet box green-haze"
+            [ngClass]="typeActive === 'green' ? 'popup-vms-green' : 'popup-vms-black'"
+            (mousedown)="onMouseDown($event)" #box id="popup" (mouseup)="onMouseUp($event)">
+            <div class="popup-header" [ngClass]="{'green': typeActive === 'green', 'black': typeActive ==='black'}">
+                <div class="popup-header-title-text">
+                    <img class="popup-header-icon-popup" src="/assets/img/icon-info.png" alt="" />
+                    <span class="popup-information-text">Technical status PR</span>
+                </div>
+                <div class="popup-header-title-icon">
+                    <img class="popup-component.instance.titleCamera = entry.titleCamera;header-icon-popup"
+                        src="/assets/img/icon-close.png" alt="" data-dismiss="modal" #closeModal />
+                </div>
+            </div>
+            <div class="portlet-body">
+
+                <div class="form-group row popup-margin-infomation">
+                    <label class="col-md-4 popup-text-label-infomation">Engineering bureau:</label>
+                    <div class="col-md-8">
+                        <input readonly="true" class="form-input" value="EB001A">
+                    </div>
+                </div>
+
+                <div class="form-group row popup-margin-infomation">
+                    <label class="col-md-4 popup-text-label-infomation">Portal ID:</label>
+                    <div class="col-md-8">
+                        <input readonly="true" class="form-input" value="EB001AVMS01"> </div>
+                </div>
+
+                <div class="form-group row popup-margin-infomation">
+                    <label class="col-md-4 popup-text-label-infomation">Communication status:</label>
+                    <div class="col-md-8">
+                        <input readonly="true" class="form-input" value="UP/DOWN"> </div>
+                </div>
+
+                <div class="form-group row popup-margin-infomation">
+                    <label class="col-md-4 popup-text-label-infomation">Last status change:</label>
+                    <div class="col-md-8">
+                        <input readonly="true" class="form-input" value="2019-12-31 23:59:59"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

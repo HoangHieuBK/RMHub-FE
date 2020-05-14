@@ -1,0 +1,63 @@
+stages:
+  - verify
+
+variables:
+  DOCKER_HOST: tcp://localhost:2375
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_DRIVER: overlay2
+  REGISTRY: eu.gcr.io
+  REGISTRY_USER: _json_key
+  REGISTRY_PASSWORD: $GCLOUD_SERVICE_KEY
+
+build-and-verify:
+  stage: verify
+  image: docker:git
+  variables:
+    DOCKER_FILE: Dockerfile
+    DOCKER_CONTEXT: ./
+    IMAGE_NAME: rmhub-ui
+    BUILDER_IMAGE_NAME: nodejs
+    CONTAINER_NAME: rmhub-ui
+    BUILDER_IMAGE_TAG: $REGISTRY/$GCLOUD_PROJECT_ID/$IMAGE_NAME:builder
+    LATEST_IMAGE_TAG: $REGISTRY/$GCLOUD_PROJECT_ID/$IMAGE_NAME:latest
+    RUNTIME_IMAGE_TAG: $REGISTRY/$GCLOUD_PROJECT_ID/$IMAGE_NAME:$CI_COMMIT_REF_SLUG
+  services:
+    - docker:stable-dind
+  before_script:
+    - docker info
+    - echo $REGISTRY_PASSWORD | docker login -u $REGISTRY_USER --password-stdin $REGISTRY
+    # pull the builder image
+    - docker pull $BUILDER_IMAGE_TAG || true
+    # pull the latest runtime image
+    - docker pull $LATEST_IMAGE_TAG || true
+  script:
+    # build builder image first, use pulled builder image as cache
+    - docker build
+      --target $BUILDER_IMAGE_NAME
+      -f $DOCKER_FILE
+      --cache-from $BUILDER_IMAGE_TAG
+      -t $BUILDER_IMAGE_TAG
+      $DOCKER_CONTEXT
+    # build runtime image, use the builder image and pulled runtime image
+    - docker build
+      -f $DOCKER_FILE
+      --cache-from $BUILDER_IMAGE_TAG
+      --cache-from $LATEST_IMAGE_TAG
+      -t $LATEST_IMAGE_TAG
+      -t $RUNTIME_IMAGE_TAG
+      $DOCKER_CONTEXT
+    # we only need to verify that the image is build with no error
+    - docker run -d --name $CONTAINER_NAME $RUNTIME_IMAGE_TAG
+    # i don't know if we have to wait for the container to be fully started
+    - sleep 5
+    - docker logs $CONTAINER_NAME
+    - docker exec $CONTAINER_NAME wget -qO- localhost > /dev/null
+    - docker stop $CONTAINER_NAME && docker rm $CONTAINER_NAME
+    # push the builder image
+    - docker push $BUILDER_IMAGE_TAG
+    # push the runtime image
+    - docker push $LATEST_IMAGE_TAG
+    - docker push $RUNTIME_IMAGE_TAG
+  after_script:
+    - docker images
+    - docker ps -a

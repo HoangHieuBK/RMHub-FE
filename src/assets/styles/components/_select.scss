@@ -1,0 +1,29 @@
+.combobox {
+  font-size: 14px;
+  background: url(/assets/img/arrow-select.png) no-repeat right white;
+  -webkit-appearance: none;
+  background-position-x: 97%;
+}
+
+.combobox-showing{
+  @extend .combobox;
+  background-position-x: 80%;
+}
+
+.select-date {
+  font-size: 14px;
+  font-family: "Roboto";
+
+  background: url(/assets/icon/icon-date.png) no-repeat right white;
+  -webkit-appearance: none;
+  background: #adb9c8;
+}
+[type="date"] {
+  background: #fff url(/assets/icon/icon-date.png) 97% 50% no-repeat;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}

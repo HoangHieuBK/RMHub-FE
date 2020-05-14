@@ -1,0 +1,40 @@
+<div class="portlet box weather-select-position popup-vms-green map-form-popup">
+    <div class="popup-header green">
+        <div class="popup-header-title-text">
+            <span class="title-select-device">{{ 'Map.Popup_Set_Location.Title_Popup' | translate }}</span>
+        </div>
+        <div class="popup-header-title-icon">
+            <img class="popup-header-icon-popup" (click)="onClosePopup()" src="/assets/img/icon-close.png" alt="">
+        </div>
+    </div>
+
+    <div class="portlet-body">
+        <div class="select-device-search">
+            <input class="select-device-search-input" (keyup.enter) = "searchDeviceByName($event.target.value)"
+                placeholder="{{ 'Map.Popup_Set_Location.Search_Holder' | translate }}">
+        </div>
+        <div class="container-device" #scroll [ngStyle]="setScroll(deviceData?.length)">
+            <div class="row content-box" *ngFor="let dv of deviceData; let i = index">
+                <div class="col-md-1 element-device">
+                    <label class="container-radio">
+                        <input type="radio" name="radio" (change)="selectDevice(dv)" [checked]="i === 0">
+                        <span class="checkmark-radio"></span>
+                    </label>
+                </div>
+                <div class="col-md-9 element-device">
+                    <span class="device-name">{{dv.name}}</span>
+                </div>
+                <div class="col-md-1 icon-position-device element-device">
+                    <ng-container *ngIf="dv.registration ===  'Registered'">
+                        <img src="/assets/icon/ic-location-device.png" alt="" class="">
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div  class="noResultSearch"><span >{{ messageGrid | translate}}</span></div>
+        <div class="button-are">
+            <button class="button button-add" data-toggle="modal" [attr.data-target]="deviceSelected && deviceSelected.registration !== statusRegistration? '' : '#setLocation'"
+                (click)="deviceData?.length > 0? submitPopupInfo() : ''" [disabled]="deviceData?.length > 0? false : true">{{ 'Map.Popup_Set_Location.Button_Save' | translate }}</button>
+        </div>
+    </div>
+</div>

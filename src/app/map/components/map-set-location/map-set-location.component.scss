@@ -1,0 +1,141 @@
+$color-background: #000000;
+$color-text: #FFFFFF;
+$color-text-devices: rgba(255, 255, 255, 0.87);
+$color-background-search: #4F4F4F;
+$color-text-search: rgb(255, 255, 255);
+$color-checkmark: rgba(173, 185, 200, 0.54);
+$color-checkmark-checked: #38AB58;
+
+.portlet.box > .portlet-body {
+    background-color: $color-background;
+}
+.weather-select-position {
+    width: 273px;
+}
+.select-device-search {
+    padding-bottom: 10px;
+}
+.select-device-search-input {
+    font-family: Roboto;
+    width: 253px;
+    height: 30px;
+    border: none;
+    color: $color-text-search;
+    padding: 10px 6px;
+    background: $color-background-search;
+}
+.button-are {
+    text-align: center;
+    padding-top: 25px;
+}
+.btn {
+    font-family: Roboto;
+    color: $color-text;
+}
+.device-name {
+    width: 260px;
+    height: 18px;
+    font-size: 14px;
+    line-height: 16px;
+    color: $color-text-devices;
+}
+.content-box {
+    box-sizing: border-box;
+    padding: 5px 0px 0px 16px;
+}
+.element-device {
+    padding: 7px 10px;
+}
+.title-select-device {
+    font-family: Roboto;
+    width: 228px;
+    height: 14px;
+    font-size: 14px;
+    line-height: 16px;
+    color: $color-text;
+}
+.icon-position-device {
+    transform: translate(0px, -4px);
+    height: 0px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+/* Beginning The css's radio */
+/* The container */
+.container-radio {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default radio button */
+  .container-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  /* Create a custom radio button */
+  .checkmark-radio {
+    position: absolute;
+    top: -1px;
+    left: -5px;
+    height: 19px;
+    width: 19px;
+    border: 2px solid $color-checkmark;
+    border-radius: 50%;
+  }
+
+  /* When the radio button is checked, add a blue background */
+  .container-radio input:checked ~ .checkmark-radio {
+    background-color: none;
+    border: 2px solid $color-checkmark-checked;
+  }
+
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark-radio:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the indicator (dot/circle) when checked */
+  .container-radio input:checked ~ .checkmark-radio:after {
+    display: block;
+  }
+
+  /* Style the indicator (dot/circle) */
+  .container-radio .checkmark-radio:after {
+    top: 3px;
+    left: 3px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: $color-checkmark-checked;
+  }
+  .noResultSearch {
+      text-align: center;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-family: Roboto;
+  }

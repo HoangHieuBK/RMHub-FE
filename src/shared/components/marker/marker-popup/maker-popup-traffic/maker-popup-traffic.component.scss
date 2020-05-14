@@ -1,0 +1,112 @@
+$txt-color: rgba(255, 255, 255, 0.87);
+td {
+    border: 1px solid #4F4F4F;
+    text-align: left;
+}
+
+.portlet.box>.portlet-body {
+    background-color: #000000;
+}
+
+.popup-table-traffic>tbody>tr>td {
+    height: 28px !important;
+    padding: 2px 3px 1px 3px;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.popup-traffic-disconnect-text {
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.popup-traffic {
+    width: 350px;
+}
+
+.popup-traffic-text-data {
+    text-align: center;
+    width: 60px;
+    font-size: 14px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 16px;
+}
+
+.popup-traffic-text-span {
+    padding-left: 10px;
+    font-size: 14px;
+    font-family: Roboto;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.popup-traffic-normal {
+    width: 124px;
+    height: 25px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 25px;
+    color: $txt-color;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.popup-traffic-time {
+    width: 206px;
+    height: 25px;
+    font-size: 14px;
+    font-family: 'Roboto';
+    background-color: #4F4F4F;
+    color: rgba(255, 255, 255, 0.87);
+    padding-left: 10px;
+    line-height: 25px;
+}
+
+.popup-traffic-width-td {
+    width: 269px;
+}
+
+.popup-traffic-table-title {
+    padding-bottom: 35px;
+}
+
+.bar-traffic-jam {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #FF2D2D;
+    color: $txt-color;
+}
+
+.bar-slow-traffic {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #F49908;
+    color: $txt-color;
+}
+
+.bar-traffic-error {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #4F4F4F;
+    color: $txt-color;
+}
+
+.portlet.box {
+    border-radius: 3px !important;
+}
+
+.txt-transform {
+    text-transform: uppercase;
+}
+
+.popup-traffic-time-update {
+    width: -webkit-fill-available;
+}

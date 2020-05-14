@@ -1,0 +1,16 @@
+.count {
+   height: 17px;
+
+   border-right: none;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 14px;
+   line-height: 16px;
+   padding: 24px 0px 0px 15px;
+   & .section-count {
+        color: #677484
+   }
+}
+.txt-content-transform {
+    text-transform: uppercase;
+}

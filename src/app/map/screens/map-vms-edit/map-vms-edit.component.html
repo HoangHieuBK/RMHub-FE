@@ -1,0 +1,19 @@
+<!-- Begin Edit Vms -->
+<rmhub-map-edit-vms [editData]="editData" (saveVms)="onBtnSendClick()"></rmhub-map-edit-vms>
+<!-- End of Edit Vms -->
+
+<!-- BEGIN-MODAL-IMAGE-LEFT -->
+<rmhub-map-traffic-sign [arr_img]="arr_img" [typeActive]="typeActive" [currentActive]="currentActive"
+    (getImg)="getImg($event)" (saveSelectImg)="onBtnSaveCommandClickL()" [id]="'modal-img-left'">
+</rmhub-map-traffic-sign>
+<!-- END-MODAL-IMAGE-LEFT -->
+
+<!-- BEGIN-MODAL-IMAGE-RIGHT -->
+<rmhub-map-traffic-sign [arr_img]="arr_img" [typeActive]="typeActive" [currentActive]="currentActive"
+    (getImg)="getImg($event)" (saveSelectImg)="onBtnSaveCommandClickR()" [id]="'modal-img-right'">
+</rmhub-map-traffic-sign>
+<!-- END-MODAL-IMAGE-RIGHT? -->
+
+<!-- BEGIN-MODAL-VMS-TEMPLATE -->
+<rmhub-map-vms-manage [arr_img]="arr_img" [ar]="ar" [editData]="editData" [typeActive]="typeActive"></rmhub-map-vms-manage>
+<!-- END-MODAL-VMS-TEMPLATE -->

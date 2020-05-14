@@ -1,0 +1,19 @@
+.disable-element{
+    pointer-events: none;
+}
+.icon-menu {
+  margin-right: 12px !important;
+  img {
+    margin-bottom: 5px;
+  }
+}
+.page-sidebar .page-sidebar-menu > li.open2 > a {
+  background: #1B3F71;
+  color: #FFFFFF;
+}
+.open .sub-menu {
+    display: block;
+}
+.menu-color > a {
+    background: #1B3F71;
+}

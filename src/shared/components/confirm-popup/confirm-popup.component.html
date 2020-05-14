@@ -1,0 +1,27 @@
+<div class="modal fade" [id]="popUpModel?.id" tabindex="-1" role="basic" aria-hidden="false" data-backdrop="static">
+    <div class="modal-dialog popup-width">
+        <div class="modal-content popup-height">
+            <div class="popup-header" [ngClass]="updateStyleElement(popUpModel?.type)">
+                <p class="popup-title pull-left">{{ popUpModel?.title | translate }} {{expandHeaderName}}</p>
+                <img src="../../../assets/icon/close-popup.png" alt="" data-dismiss="modal"
+                    class="close-popup pull-right" (click)="onButtonClicked('close')">
+            </div>
+            <div class="modal-body">
+                <div class="popup-content popup-font">
+                    <p> {{ popUpModel?.content | translate }} </p>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <div class="popup-buttons popup-font">
+                    <button type="button" class="btn popup-button button-yes" data-dismiss="modal"
+                        [ngClass]="updateStyleElement(popUpModel?.type)" (click)="onButtonClicked('yes')">
+                        {{ popUpModel?.textYes | translate }}</button>
+                    <button [id]="popUpModel?.id + '_close'" *ngIf="showElement(popUpModel?.type)" type="button" class="btn popup-button button-no"
+                        data-dismiss="modal" (click)="onButtonClicked('no')"> {{ popUpModel?.textNo | translate }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

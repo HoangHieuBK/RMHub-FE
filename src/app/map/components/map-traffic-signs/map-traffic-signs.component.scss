@@ -1,0 +1,98 @@
+
+  .modal.in .modal-dialog-custom {
+    -webkit-transform: translate(0, calc(50vh - 50%));
+    -ms-transform: translate(0, 50vh) translate(0, -50%);
+    -o-transform: translate(0, calc(50vh - 50%));
+    transform: translate(0, 40vh) translate(0, -50%);
+  }
+  .modal.in .modal-dialog-custom-template {
+    -webkit-transform: translate(0, calc(50vh - 50%));
+    -ms-transform: translate(0, 50vh) translate(0, -50%);
+    -o-transform: translate(0, calc(50vh - 50%));
+    transform: translate(0, 40vh) translate(0, -50%);
+  }
+  .modal.in .modal-dialog-custom-img {
+    -webkit-transform: translate(0, calc(50vh - 50%));
+    -ms-transform: translate(0, 50vh) translate(0, -50%);
+    -o-transform: translate(0, calc(50vh - 50%));
+    transform: translate(0, 40vh) translate(0, -50%);
+  }
+  .modal-dialog-customs {
+    width: 636px;
+    margin: 30px auto;
+    position: relative;
+    z-index: 10051;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  }
+  .modal-content {
+    border: none;
+  }
+
+  .form-control {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  .td {
+    display: inline-block;
+  }
+  .modal-footer {
+    border-left: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+  }
+  .modal-footer .button {
+    margin-left: 10px;
+  }
+  .modal-body {
+    padding: 10px;
+    border-top: 1px solid #d1d1d1;
+    border-left: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1;
+  }
+  ul {
+    list-style-type: none;
+    padding-left: 15px;
+    margin-bottom: 5px;
+  }
+  .show {
+    display: block;
+  }
+
+  .hidden {
+    display: none;
+  }
+  li {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #818E9E;
+    padding: 5px;
+  }
+
+  .active{
+    background-color: #DADADA;
+  }
+  .active-child{
+    background-color: #ADB9C8;
+    color: white;
+  }
+  .img-traffic-signs {
+    width: 64px;
+    height: 64px;
+  }
+  .img-plus{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #26DE81;
+    font-size: 25px
+  }
+  .groups-img {
+    position: relative
+  }

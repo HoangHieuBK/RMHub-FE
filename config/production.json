@@ -1,0 +1,26 @@
+{
+    "api": {
+        "baseUrl": "http://192.168.66.32:8000/api/v1/device",
+        "baseUrlToken": "http://192.168.66.32:8000/api/v1",
+        "baseUrlSocket": "http://192.168.66.32:8067/ws",
+        "serverDevice": "http://192.168.66.32:8000/api/v1/device",
+        "serverTraffic": "http://192.168.66.32:8000/api/v1/traffic",
+        "serverWeather": "http://192.168.66.32:8000/api/v1/weather"
+    },
+    "map": {
+        "defaultMaxZoom": 16,
+        "coordinateView": [
+            46.879947,
+            19.715459
+        ],
+        "apiKey": "nmEnjsFliTphhf128A0SV64GwoIcD0HZSEAOy03O",
+        "radiusCircle": {
+            "weather": 5000,
+            "traffic": 500
+        },
+        "showIconTraffic": true,
+        "urlTileLayer": "http://api.mapcat.com/routecalc-tiles/tile/{z}/{x}/{y}.png",
+        "urlRoute": "http://api.mapcat.com/routecalc/route",
+        "attribution": "&copy; <a href='https://www.mapcat.com'>MapCat</a> contributors"
+    }
+}

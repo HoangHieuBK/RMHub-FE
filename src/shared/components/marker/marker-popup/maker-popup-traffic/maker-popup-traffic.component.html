@@ -1,0 +1,59 @@
+<div class="portlet box popup-traffic">
+    <div class="popup-header" [ngClass]="updateTitlePopup(alertDeviceData?.communication?.value_real)">
+        <div class="popup-header-title-text">
+            <a routerLink="/{{commonConstant.URL_TRAFFIC_LOGGER.detail}}/{{deviceData?.id}}" class="text-center-cmr">
+                {{deviceData?.deviceName}}&nbsp;{{deviceData?.pools[0]?.poolName}}
+            </a>
+        </div>
+        <div class="popup-header-title-icon">
+            <img class="popup-header-icon-popup" (click)="onClosePopup()" src="/assets/img/icon-close.png" alt="">
+        </div>
+    </div>
+
+    <div class="portlet-body">
+        <div class="popup-traffic-table-title">
+            <span class="popup-traffic-time pull-left"
+                [ngStyle]="updateStyleTitleTime(alertDeviceData?.alert)">{{'Traffic.MarkerInfo.time' | translate}}&nbsp;{{updateValueOfDate(updated_at)}}
+            </span>
+            <ng-container *ngIf="alertDeviceData?.alert?.description">
+                <span class="popup-traffic-normal pull-left txt-transform"
+                    [ngStyle]="updateStyleTitleTime(alertDeviceData?.alert,false)"
+                    title="{{alertDeviceData?.alert.description}}">
+                    {{alertDeviceData?.alert.description}}
+                </span>
+            </ng-container>
+        </div>
+        <table class="popup-table-traffic">
+            <tr>
+                <td class="popup-traffic-width-td">
+                    <span class="popup-traffic-text-span">{{'Traffic.MarkerInfo.flow1min' | translate}}</span>
+                </td>
+                <td class="popup-traffic-text-data">{{alertDeviceData?.flow}}</td>
+            </tr>
+            <tr>
+                <td class="popup-traffic-width-td">
+                    <span class="popup-traffic-text-span">{{'Traffic.MarkerInfo.averageSpeed' | translate}}</span>
+                </td>
+                <td class="popup-traffic-text-data">
+                    {{alertDeviceData?.averageSpeed}}
+                </td>
+            </tr>
+            <tr>
+                <td class="popup-traffic-width-td">
+                    <span class="popup-traffic-text-span">{{'Traffic.MarkerInfo.occupationRate' | translate}}</span>
+                </td>
+                <td class="popup-traffic-text-data">
+                    {{alertDeviceData?.occupationRate}}
+                </td>
+            </tr>
+            <tr>
+                <td class="popup-traffic-width-td">
+                    <span class="popup-traffic-text-span">{{'Traffic.MarkerInfo.communication' | translate}}</span>
+                </td>
+                <td class="popup-traffic-text-data">
+                    <span> {{alertDeviceData?.communication?.value_convert | translate}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

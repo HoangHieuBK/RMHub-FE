@@ -1,0 +1,27 @@
+.text-center-cmr{
+    width: calc(100% - 62px);
+    display: inline-block;
+    font-size: 14px;
+    padding: 2px;
+}
+
+::ng-deep .leaflet-popup-tip-container{
+    width: 0px;
+    height: 0px;
+}
+
+::ng-deep .leaflet-popup-content-wrapper{
+    padding: 0px;
+}
+ ::ng-deep .leaflet-popup-content{
+    margin: 0px;
+    line-height: 0;
+}
+.icon-close-popup {
+    width: 11px;
+    background-image: url('../../../../../assets/img/portlet-remove-icon-white.png');
+  }
+.camera-body {
+    padding: 10px 10px 5px 10px;
+    background: #fff;
+}

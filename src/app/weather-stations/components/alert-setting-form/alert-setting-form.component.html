@@ -1,0 +1,132 @@
+<div class="row">
+    <form novalidate [formGroup]="alertFrm">
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <span class="field-title field-title-distance"> {{ 'Weather-Station.Alert.AlertName' | translate }} <span class="required">*</span> </span>
+                        <div [ngStyle]="{'display': isSetting && !disableSelectAlertCode? '' : 'none'}">
+                            <select #selectCode type="text" class="form-input combobox" formControlName="alertCode" (change)="selectAlertCode($event)" [ngStyle]="{'border-color': !disableMessageAlertCode && messageAlertCodeInvalid? borderColorInput : ''}" (focusout)="alertCodeFocusOut()"
+                                autofocus>
+                                <option [selected]="isSetting" value="">- {{ 'Weather-Station.Alert.Select' | translate }} -</option>
+                                <option *ngFor="let item of arrAlertCodes" [value]="item.code" [innerHTML]="'Weather-Station.Alert.Alert_Code.' + item.code | translate"></option>
+                            </select>
+                        </div>
+                        <div [ngStyle]="{'display': isSetting && !disableSelectAlertCode? 'none' : ''}">
+                            <input type="text" [className]="isSetting && !alert.id? 'form-input' : 'form-input input-disable' " [value]="'Weather-Station.Alert.Alert_Code.' + alert.alertCode | translate" [readOnly]="true">
+                        </div>
+                        <!-- validator AlertCode -->
+                        <div class="text-validation" *ngIf="!disableMessageAlertCode">
+                            <span>{{ messageAlertCodeInvalid | translate }}</span>
+                        </div>
+                        <!-- end of validator AlertCode -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <span class="field-title field-title-distance">{{ 'Weather-Station.Alert.Content' | translate }} <span class="required">*</span> </span>
+                        <input #inputContent type="text" [className]="isSetting? 'form-input' : 'form-input input-disable'" formControlName="content" (keydown)="disableTranslateContent()" [ngStyle]="{'border-color': !disableMessageContent && (checkOnlySpacingContent || (messageContentInvalid && isContentFocus))? borderColorInput : ''}"
+                            (focusout)="contentFocusOut()" [readOnly]="!isSetting" [maxLength]="maxLengthContent">
+
+                        <!-- validator Content -->
+                        <div class="text-validation">
+                            <ng-container *ngIf="!disableMessageContent && (checkOnlySpacingContent || (messageContentInvalid && isContentFocus))">
+                                <span>{{ messageContentInvalid | translate: { maxLength: maxLengthContent } }}</span>
+                                <span *ngIf="checkOnlySpacingContent && !messageContentInvalid">{{'Common_Validator.required' | translate}}</span>
+                            </ng-container>
+                        </div>
+                        <!-- end of validator Content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-6 condition">
+                    <div class="form-group">
+                        <span class="field-title field-title-distance">{{ 'Weather-Station.Alert.Condition' | translate }} <span class="required">*</span> </span>
+                        <div [ngStyle]="{'display': isSetting? '' : 'none'}">
+                            <select type="text" class="form-input combobox" formControlName="condition" (focusout)="conditionFocusOut()" [ngStyle]="{'border-color': !disableMessageCondition && (messageConditionInvalid || constraintCondition)? borderColorInput : ''}">
+                                <option [selected]="!alert.id" value="">- {{ 'Weather-Station.Alert.Select' | translate }} -</option>
+                                <option *ngFor="let cdt of conditionAlerts; let i = index" [value]="cdt.id">{{cdt.condition}}</option>
+                            </select>
+                        </div>
+                        <div [ngStyle]="{'display': isSetting? 'none' : ''}">
+                            <input type="text" class="form-input input-disable" [readOnly]="true" [value]="setCondition(alert.condition)">
+                        </div>
+                        <div class="text-validation" *ngIf="!disableMessageCondition">
+                            <ng-container *ngIf="messageConditionInvalid">
+                                <span>{{ messageConditionInvalid | translate }}</span>
+                            </ng-container>
+                            <ng-container *ngIf="!messageConditionInvalid && constraintCondition">
+                                <span>{{ 'Weather-Station.Validation-Alert-Form.MES_Condition' | translate }}</span>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 value">
+                    <div class="form-group">
+                        <span class="field-title field-title-distance">{{ 'Weather-Station.Alert.Value' | translate }} <span class="required">*</span> </span>
+                        <input type="text" [className]="isSetting? 'form-input' : 'form-input input-disable' " formControlName="value" [ngStyle]="{'border-color': !disableMessageValue && (messageValueInvalid || isExceedValue || constraintValue)? borderColorInput : ''}" [maxLength]="maxLengthValue"
+                            [pattern]="patternValue" [readOnly]="!isSetting" (focusout)="valueFocusOut()">
+                        <!-- validator Value -->
+                        <div class="text-validation" *ngIf="!disableMessageValue">
+                            <ng-container>
+                                <span>{{ messageValueInvalid | translate: { maxLength: maxLengthValue } }}</span>
+                            </ng-container>
+                            <ng-container *ngIf="!messageValueInvalid && isExceedValue">{{ 'Weather-Station.Validation-Alert-Form.ExceedValue' | translate }}</ng-container>
+                            <ng-container *ngIf="!messageValueInvalid && !isExceedValue">
+                                <ng-container *ngIf="constraintValue && !checkDuplicateValue">
+                                    <span>{{ 'Weather-Station.Validation-Alert-Form.error' | translate }}</span>
+                                </ng-container>
+                                <ng-container *ngIf="checkDuplicateValue">
+                                    <span>{{ 'Weather-Station.Validation-Alert-Form.DuplicateValue' | translate }}</span>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+                        <!-- end of validator Value -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-7 level">
+                    <div class="form-group">
+                        <span class="field-title field-title-distance input-dis">{{ 'Weather-Station.Alert.Level' | translate }} <span class="required">*</span> </span>
+                        <div [ngStyle]="{'display': isSetting? '' : 'none'}">
+                            <select class="form-input combobox" (change)="setColor($event)" formControlName="level" [ngStyle]="{'border-color': !disableMessageLevel && messageLevelInvalid? borderColorInput : ''}" (focusout)="levelFocusOut()">
+                                <option [selected]='!alert.id' value="">- {{ 'Weather-Station.Alert.Select' | translate }} -</option>
+                                <option *ngFor="let alertColor of arrAlertColor; let i = index" [value]='i + 1'
+                                    [ngStyle]="{'background': alertColor}">
+                                    {{i + 1}}
+                                </option>
+                            </select>
+                        </div>
+                        <div [ngStyle]="{'display': isSetting? 'none' : ''}">
+                            <input type="text" class="form-input input-disable" [readOnly]="true" [value]="alert.level">
+                        </div>
+                        <div class="text-validation" *ngIf="!disableMessageLevel">
+                            <ng-container>
+                                <span>{{ messageLevelInvalid | translate }}</span>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 alert-color">
+                    <div class="color-alert-input" #colorAlert>
+
+                    </div>
+                    <div [ngStyle]="{'display': buttonShow? 'none': ''}" class="button-alert-action">
+                        <button class="icon-edit button-icon-alert" [ngClass]="disableButton? 'nohover': ''" (click)="disableButton? '' : doEditAction()" [disabled]="disableButton"></button>
+                        <button class="icon-delete button-icon-alert" [ngClass]="disableButton? 'nohover': ''" [attr.data-target]="disableButton? '#' : '#' + alert.alertCode" data-toggle="modal" [disabled]="disableButton"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+    <rmhub-confirm-popup #confirmPopup [popUpModel]="popUpModel"></rmhub-confirm-popup>
+</div>

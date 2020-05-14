@@ -1,0 +1,32 @@
+textarea {
+    width: -webkit-fill-available;
+ }
+ .modal-custom.in .modal-dialog-custom {
+    -webkit-transform: translate(0, calc(50vh - 50%));
+    -ms-transform: translate(0, 50vh) translate(0, -50%);
+    -o-transform: translate(0, calc(50vh - 50%));
+    transform: translate(0, 40vh) translate(0, -50%);
+ }
+ .popup-input-infomation {
+    float: right;
+    width: 100%;
+ }
+ .popup-margin-infomation {
+    margin-bottom: 10px;
+ }
+ .popup-text-label-infomation {
+    padding-top: 10px;
+    float: left;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    align-items: center;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.87);
+    padding-right: 0px !important;
+
+ }
+ .popup-information-text {
+    padding-left: 10px;
+ }

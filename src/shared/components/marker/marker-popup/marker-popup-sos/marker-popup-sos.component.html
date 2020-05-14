@@ -1,0 +1,105 @@
+<div class="display">
+
+   <!-- BEGIN SAMPLE TABLE PORTLET-->
+   <div class="portlet box green" [ngClass]="typeActive === 'green' ? 'popup-vms-green' : 'popup-vms-black'">
+      <div class="popup-header" [ngClass]="{'green': typeActive === 'green', 'black': typeActive ==='black'}">
+         <div class="popup-header-title-text">
+            <span class="text-center-cmr">{{markerData.codeSOS}}</span>
+         </div>
+         <div class="popup-header-title-icon">
+            <img class="popup-header-icon-popup" (click)="onClosePopup()" src="/assets/img/icon-close.png" alt="">
+         </div>
+      </div>
+
+      <div [hidden]="typeActive === 'black'" class="form-group">
+         <button type="button" class="btn btn-answer "><img
+               src="/assets/img/map/sos/call-incoming.png"><span>ANSWER</span>
+         </button>
+         <button type="button" class="btn btn-decline"><img src="/assets/img/map/sos/call-no.png"><span>DECLINE</span>
+         </button>
+      </div>
+
+
+      <div class="portlet-body flip-scroll">
+         <table class="table table-bordered" *ngIf="typeActive === 'green' || typeActive === ''">
+            <thead class="flip-content">
+               <tr>
+                  <th>
+                     Informations
+                  </th>
+                  <th>
+                     Events
+                  </th>
+                  <th class="numeric">
+                     Minor Alarms
+                  </th>
+                  <th class="numeric major">
+                     Major Alarms
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>
+                     Info1
+                  </td>
+                  <td>
+                     Event 1
+                  </td>
+                  <td>
+                     Alarm 1
+                  </td>
+                  <td>
+                     Alarm 2
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     Info1
+                  </td>
+                  <td>
+                     Event 1
+                  </td>
+                  <td>
+                     Alarm 1
+                  </td>
+                  <td>
+                     Alarm 2
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     Info1
+                  </td>
+                  <td>
+                     Event 1
+                  </td>
+                  <td>
+                     Alarm 1
+                  </td>
+                  <td>
+                     Alarm 2
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     Info1
+                  </td>
+                  <td>
+                     Event 1
+                  </td>
+                  <td>
+                     Alarm 1
+                  </td>
+                  <td>
+                     Alarm 2
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <table class="popup-table-traffic" *ngIf="typeActive === 'black'">
+                <span class="popup-traffic-disconnect-text">- Disconnect - </span>
+             </table>
+      </div>
+   </div>
+   <!-- END SAMPLE TABLE PORTLET-->
+</div>

@@ -1,0 +1,114 @@
+<form novalidate>
+    <div [formGroup]="alertFrm" class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <span class="field-title field-title-distance">{{ 'Traffic.Alert.Description' | translate }} <span
+                        class="required">*</span>
+                </span>
+                <div>
+                    <input type="text" [ngClass]="isSetting? 'form-input' : 'form-input input-disable'" formControlName="description" [readOnly]="!isSetting" [maxLength]="maxLengthDes" (focusout)="checkDescriptionFocusOut()" #focusDescription [ngStyle]="{'border-color': !disableMessageDescription && messageDescriptionFocusOut ? borderColorInput : ''}">
+                </div>
+
+                <div class="text-validation">
+                    <ng-container *ngIf="!disableMessageDescription">
+                        <span>{{ messageDescriptionFocusOut | translate: {maxLength: maxLengthDes} }}</span>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="form-group">
+                    <span class="field-title field-title-distance speed">{{ 'Traffic.Alert.SpeedRange' | translate }}
+                        <span class="required">*</span>
+                    </span>
+                    <div class="col-md-6 value">
+                        <div>
+                            <input type="text" [ngClass]="isSetting? 'form-input' : 'form-input input-disable'" formControlName="min" [readOnly]="!isSetting" [pattern]="patternValue" [maxLength]="maxLengthMinMax" (focusout)="checkMinFocusOut()" [ngStyle]="{'border-color': !disableMessageMin && (messageMinFocusOut || checkMinGreaterMax || checkSpeedOverlap)? borderColorInput : ''}">
+                        </div>
+                        <div class="text-validation" *ngIf="!disableMessageMin">
+                            <ng-container *ngIf="messageMinFocusOut; else min_valid">
+                                <span>{{ messageMinFocusOut | translate: {maxLength: maxLengthMinMax} }}</span>
+                            </ng-container>
+                            <ng-template #min_valid>
+                                <ng-container *ngIf="checkMinGreaterMax; else minLowerMax">
+                                    <span>
+                                        {{ 'Traffic.Validation-Alert-Form.minGreaterMax' | translate }}</span>
+                                </ng-container>
+                                <ng-template #minLowerMax>
+                                    <ng-container *ngIf="checkSpeedOverlap">
+                                        <span> {{ 'Traffic.Validation-Alert-Form.speedOverlap' | translate }}</span>
+                                    </ng-container>
+                                </ng-template>
+                            </ng-template>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 value">
+                        <div>
+                            <input type="text" [ngClass]="isSetting? 'form-input' : 'form-input input-disable' " formControlName="max" [readOnly]="!isSetting" [pattern]="patternValue" [maxLength]="maxLengthMinMax" (focusout)="checkMaxFocusOut()" [ngStyle]="{'border-color': !disableMessageMax &&  (messageMaxFocusOut || checkSpeedOverlap)? borderColorInput : ''}">
+                        </div>
+                        <div class="text-validation" *ngIf="!disableMessageMax">
+                            <ng-container *ngIf="messageMaxFocusOut; else max_Valid">
+                                <span>{{ messageMaxFocusOut | translate: {maxLength: maxLengthMinMax} }}</span>
+                            </ng-container>
+                            <ng-template #max_Valid>
+                                <ng-container *ngIf="checkSpeedOverlap">
+                                    <span> {{ 'Traffic.Validation-Alert-Form.speedOverlap' | translate }}</span>
+                                </ng-container>
+                            </ng-template>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-8 level">
+                    <div class="form-group">
+                        <span class="field-title field-title-distance input-dis">{{ 'Traffic.Alert.Level' | translate }}
+                            <span class="required">*</span> </span>
+                        <div class="form-group">
+                            <div [ngStyle]="{'display': isSetting? '' : 'none'}">
+                                <select (change)="setColor($event)" formControlName="level" class="form-input combobox" (focusout)="checkLevelFocusOut()" [ngStyle]="{'border-color': !disableMessageLevel &&  (messageLevelFocusOut || checkLevelDuplicate)? borderColorInput : ''}">
+                                    <option [selected]='isSetting && !checkEditAction' value="">-
+                                        {{ 'Traffic.Alert.Select' | translate }} -</option>
+                                    <option *ngFor="let alertColor of arrAlertColor; let i = index" [value]='i + 1'
+                                        [ngStyle]="{'background': alertColor}">
+                                        {{i + 1}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div [ngStyle]="{'display': isSetting? 'none' : ''}">
+                                <input type="text" class="form-input input-disable" [readOnly]="true" [value]="alert.level">
+                            </div>
+                            <div class="text-validation" *ngIf="!disableMessageLevel">
+                                <ng-container *ngIf="messageLevelFocusOut; else level_Valid">
+                                    <span>{{ messageLevelFocusOut | translate }}</span>
+                                </ng-container>
+                                <ng-template #level_Valid>
+                                    <ng-container *ngIf="checkLevelDuplicate">
+                                        <span>{{ 'Traffic.Validation-Alert-Form.levelDuplicate' | translate }}</span>
+                                    </ng-container>
+                                </ng-template>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 alert-color">
+                    <div class="color-alert-input" #colorAlert>
+                    </div>
+                    <div [ngStyle]="{'display': buttonShow? 'none': ''}" class="button-alert-action">
+                        <button class="icon-edit button-icon-alert" [ngClass]="disableButton? 'nohover' : ''" (click)="disableButton? '' : clickButtonEditAlertFirst()" [disabled]="disableButton"></button>
+                        <button class="icon-delete button-icon-alert" [ngClass]="disableButton? 'nohover' : ''" data-toggle="modal" [attr.data-target]="disableButton? '#' : '#' + alert.id" [disabled]="disableButton"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <rmhub-confirm-popup #confirmPopup [popUpModel]="popUpModel"></rmhub-confirm-popup>
+    </div>
+</form>

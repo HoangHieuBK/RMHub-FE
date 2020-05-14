@@ -1,0 +1,30 @@
+.vms-time-left {
+  padding-left: 15px;
+  padding-top: 8px;
+}
+
+.vms-time-right {
+  padding-right: 15px;
+  padding-top: 8px;
+}
+
+.vms-time {
+  font-weight: 500;
+  color: white;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-family: Roboto;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.modal-footer {
+  padding: 10px;
+  background: #f6f6f6;
+}
+.map-vms-footer {
+  height: 30px;
+}

@@ -1,0 +1,11 @@
+.map-tooltip {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0px;
+    border-radius: 0;
+    &::before{
+        border-bottom: none;
+    }
+}
+

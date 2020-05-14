@@ -1,0 +1,253 @@
+<div>
+    <div class="portlet box popup-weather popup-vms-green">
+        <div class="popup-header green">
+            <div class="popup-header-title-text">
+                <a class="text-center-cmr"
+                    routerLink="/{{commonConstant.URL_WEATHER_STATION.detail}}/{{deviceData?.id}}">
+                    <span>{{deviceData?.deviceName}}</span>
+                </a>
+            </div>
+            <div class="popup-header-title-icon">
+                <img class="popup-header-icon-popup popup-header-close-icon" (click)="onClosePopup()"
+                    src="/assets/img/icon-close.png" alt="">
+            </div>
+        </div>
+
+        <div class="portlet-body">
+            <table class="popup-table-weather">
+                <div class="popup-weather-text row">
+                    <span
+                        class="col-md-8 update-time">{{'Weather-Station.Popup-Info.Update_Time' | translate}}&nbsp;{{updateValueOfDate(alertDeviceData?.updated_at)}}
+                    </span>
+                    <div class="col-md-4 row color-status" *ngIf="!isShowMore">
+                        <div class="top-color-alert col-md-6 first-color-status"
+                            [ngStyle]="updateStyleElement([alertDeviceData?.gateOpen?.value_real,alertDeviceData?.powerDefault?.value_real])">
+                        </div>
+                        <div class="top-color-alert col-md-6"
+                            [ngStyle]="updateStyleElement(alertDeviceData?.communication?.value_real)">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <tr>
+                        <td class="popup-weather-width">
+                            <span class="popup-weather-text-span">
+                                {{'Weather-Station.Popup-Info.Surface_Temperature' | translate}}
+                            </span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color">
+                            <span>{{updateValue(alertDeviceData?.surfaceTemperature)}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-width-img">
+                            &#8451;
+                        </td>
+                    </tr>
+                    <tr class="row-color">
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Surface_Status' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color" [ngStyle]="updateStyleSurfaceStatus(alertDeviceData?.alertWeather?.color)" colspan="2">
+                            <span>{{alertDeviceData?.surfaceStatus | translate}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Freezing_Temperature' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color">
+                            <span>{{updateValue(alertDeviceData?.freezingTemperature)}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-width-img">
+                            &#8451;
+                        </td>
+                    </tr>
+                    <tr class="row-color">
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Water_Film_Height' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color">
+                            <span>{{alertDeviceData?.waterFilmHeight}}</span>
+                        </td>
+                        <td class="popup-weather-text-data">
+                            <span>mm</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Air_Temperature' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color">
+                            <span>{{updateValue(alertDeviceData?.airTemperature)}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-width-img">
+                            &#8451;
+                        </td>
+                    </tr>
+                    <tr class="row-color">
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Air_Humidity' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color">
+                            <span>{{alertDeviceData?.airHumidity}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-width-img">
+                            %
+                        </td>
+                    </tr>
+                </div>
+                <!-- expand information weather area -->
+                <div class="expand-information" *ngIf="isShowMore">
+                    <tr class="top-row-expand-information">
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Dew_point_Temperature' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color">
+                            <span>{{updateValue(alertDeviceData?.dewPointTemperature)}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-width-img">
+                            &#8451;
+                        </td>
+                    </tr>
+                    <tr class="row-color">
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Precipitation_Height' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color">
+                            <span>{{alertDeviceData?.precipitationHeight}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-width-img">
+                            mm
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Wind_Speed_Avg' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color">
+                            <span>{{alertDeviceData?.windSpeedMin}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-width-img">
+                            km/h
+                        </td>
+                    </tr>
+                    <tr class="row-color">
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Wind_Speed_Max' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color">
+                            <span>{{alertDeviceData?.windSpeedMax}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-width-img">
+                            km/h
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Type_of_Precipitation' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color" colspan="2">
+                            <span>{{alertDeviceData?.typeOfPrecipitation | translate}}</span>
+                        </td>
+                    </tr>
+                    <tr class="row-color">
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Intensity_of_Precipitation' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color" colspan="2">
+                            <span>{{alertDeviceData?.intensityOfPrecipitation |translate}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Wind_Direction' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color" colspan="2">
+                            <span>{{alertDeviceData?.windDirection | translate}}</span>
+                        </td>
+                    </tr>
+                    <tr class="row-color">
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Atmospheric_Pressure' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color">
+                            <span>{{alertDeviceData?.atmosphericPressure}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-width-img">
+                            hPa
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Winter_Conditions_Warning' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color" colspan="2">
+                            <span>{{alertDeviceData?.winterConditionsWarning | translate}}</span>
+                        </td>
+                    </tr>
+                    <tr class="row-color">
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Winter_Precipitations_Warning' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color" colspan="2">
+                            <span>{{alertDeviceData?.winterPrecipitationsWarning |translate}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Communication' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color"
+                            [ngStyle]="updateStyleElement(alertDeviceData?.communication?.value_real)" colspan="2">
+                            <span
+                                class="text-color-alert">{{alertDeviceData?.communication?.value_convert |translate}}</span>
+                        </td>
+                    </tr>
+                    <tr class="row-color">
+                        <td class="popup-weather-width">
+                            <span
+                                class="popup-weather-text-span">{{'Weather-Station.Popup-Info.Gate_Open' | translate}}</span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color"
+                            [ngStyle]="updateStyleElement(alertDeviceData?.gateOpen?.value_real)" colspan="2">
+                            <span
+                                class="text-color-alert">{{alertDeviceData?.gateOpen?.value_convert |translate}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="popup-weather-width">
+                            <span class="popup-weather-text-span">
+                                {{'Weather-Station.Popup-Info.Power_Default' | translate}}
+                            </span>
+                        </td>
+                        <td class="popup-weather-text-data popup-weather-text-color" colspan="2"
+                            [ngStyle]="updateStyleElement(alertDeviceData?.powerDefault?.value_real)" colspan="2">
+                            <span
+                                class="text-color-alert">{{alertDeviceData?.powerDefault?.value_convert |translate}}</span>
+                        </td>
+                    </tr>
+                </div>
+                <div class="expand-info-click">
+                    <span (click)="showMoreInfo()"
+                        *ngIf="!isShowMore"><u>{{'Weather-Station.Popup-Info.Show_more' | translate}}</u></span>
+                    <img (click)="showMoreInfo()" *ngIf="isShowMore" src="/assets/icon/icon-collapse-info.png" alt="">
+                </div>
+            </table>
+        </div>
+    </div>
+</div>

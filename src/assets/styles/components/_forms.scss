@@ -1,0 +1,95 @@
+$input-disable: rgba(173, 185, 200, 0.1);
+
+.distance {
+   box-sizing: border-box;
+}
+
+.form .form-section {
+   border-bottom: 1px solid red;
+}
+
+.form-input {
+   font-family: Roboto;
+   font-size: 14px;
+   font-weight: normal;
+   color: #333;
+   background-color: #fff;
+   border: 1px solid #e5e5e5;
+   box-shadow: none;
+   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+   border-radius: 3px !important;
+   display: block;
+   width: 100%;
+   height: 40px;
+   padding: 6px 10px;
+}
+
+.form-input-readonly {
+   @extend .form-input;
+   background: #F2F2F2;
+   border: none;
+}
+
+.form-input-background {
+   @extend .form-input;
+   background: rgba(173, 185, 200, 0.1);
+}
+
+.field-title {
+   font-style: normal;
+   font-weight: normal;
+   font-family: Roboto;
+   font-size: 14px;
+   line-height: 16px;
+   display: block;
+   color: rgba(0, 0, 0, 0.54);
+   margin: 0px 0 5px 0;
+}
+
+.field-title-distance {
+   margin-top: 5px;
+}
+
+.input-disable {
+   background: $input-disable;
+   border: none;
+}
+
+.row .margin-button-area {
+   margin-bottom: 5px;
+}
+
+::placeholder {
+   color: #ADB9C8;
+   opacity: 1;
+   /* Firefox */
+}
+
+:-ms-input-placeholder {
+   /* Internet Explorer 10-11 */
+   color: #ADB9C8;
+}
+
+::-ms-input-placeholder {
+   /* Microsoft Edge */
+   color: #ADB9C8;
+}
+.text-validation {
+   padding-top: 5px;
+   height: 15px;
+
+   font-family: Roboto;
+   font-style: italic;
+   font-weight: 300;
+   font-size: 12px;
+   line-height: 14px;
+
+   color: #991414;
+}
+.color-alert-input {
+    transform: translate(0px, 26px);
+    border-radius: 3px;
+    height: 40px;
+    width: 40px;
+    padding: 6px 10px;
+}

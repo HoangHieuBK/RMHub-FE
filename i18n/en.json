@@ -1,0 +1,401 @@
+{
+    "ResponseHandler": {
+        "Title": "Error",
+        "RequestError": "Request failed. Please contact your administrator.",
+        "HttpStatus400": "400 Bad request.",
+        "HttpStatus401": "401 Access not allowed.",
+        "HttpStatus403": "403 Access forbidden.",
+        "HttpStatus404": "404 Object not found.",
+        "HttpStatus500": "500 An error occurred. Please contact your administrator.",
+        "HttpStatus502": "502 Bad Gate way. Please contact your administrator."
+    },
+    "Common": {
+        "List": {
+            "Showing": "Showing",
+            "record": "records",
+            "placeHolder": "Search by Device Name",
+            "REFRESH": "REFRESH",
+            "No": "No",
+            "DeviceName": "Device Name",
+            "DeviceStatus": "Device Status",
+            "RegistrationStatus": "Registration Status",
+            "LastUpdate": "Last Update",
+            "Action": "Actions",
+            "show": "Showing",
+            "to": "to",
+            "of": "of",
+            "records": "record(s)",
+            "noSearchResult": "No search result",
+            "noRecordShown": "No records shown",
+            "Status": {
+                "Active": "Active",
+                "Inactive": "Inactive"
+            },
+            "Registration": {
+                "Registered": "Registered",
+                "Unregistered": "Unregistered"
+            }
+        },
+        "Detail": {
+            "ConnectionInformation": "Connection Information",
+            "PhysicalAddress": "Physical Address",
+            "LogicalAddress": "Logical Address",
+            "DeviceInformation": "Device Information",
+            "DeviceStatus": "Device Status",
+            "Km_m": "Km + m from the zero point",
+            "RegistrationStatus": "Registration Status",
+            "GPSCoordinate": "GPS Coordinate",
+            "GPSLatitude": "GPS Latitude",
+            "MotorwayManagementStation": "Motorway Management Station",
+            "GPSLongitude": "GPS Longitude",
+            "LastUpdate": "Last Update",
+            "BACK": "BACK",
+            "DELETE": "DELETE"
+        },
+        "Popup": {
+            "Popup_Duplicate_Coordinate": {
+                "title": "Duplicated GPS coordinates",
+                "content": "The device {{Device_name}} is already assigned to these GPS coordinates. Please check again.",
+                "textYes": "OK"
+            }
+        }
+    },
+    "Traffic": {
+        "List": {
+            "BEGINPAGEHEADER": "TRAFFIC LOGGER DEVICE LIST",
+            "TrafficLogger": "Traffic Logger",
+            "TrafficLoggerDeviceList": "Traffic Logger Device List"
+        },
+        "Detail": {
+            "BeginPageHeaderDetail": "TRAFFIC LOGGER DEVICE DETAIL",
+            "TrafficLogger": "Traffic Logger",
+            "TrafficLoggerDevice": "Traffic Logger Device List",
+            "TrafficLoggerDeviceDetail": "Traffic Logger Device Detail"
+        },
+        "Alert": {
+            "Header": "TRAFFIC LOGGER ALERT SETTING",
+            "Link-TL": "Traffic Logger",
+            "Link-TL-Alert": "Traffic Logger Alert Setting",
+            "TL-Alert": "Traffic Alert Setting",
+            "Description": "Traffic Alert Description",
+            "SpeedRange": "Speed Range To Trigger Alert",
+            "Level": "Level",
+            "Select": "Select",
+            "AddAlertButton": "ADD NEW ALERT",
+            "Submit": "SUBMIT",
+            "Cancel": "CANCEL"
+        },
+        "MarkerInfo": {
+            "time": "Updated at:",
+            "flow1min": "Flow 1 min",
+            "averageSpeed": "Average speed 1 min",
+            "occupationRate": "Occupation rate 1 min",
+            "communication": "Communication",
+            "power": "Power",
+            "system": "System",
+            "normal": "Normal",
+            "error": "Error"
+        },
+        "Validation-Alert-Form": {
+            "required": "The (*) field is required",
+            "invalidFormat": "Wrong format. Please check again",
+            "minGreaterMax": "Max value must be greater than Min value",
+            "minSpeed": "Min Speed can't be lower 0",
+            "maxSpeed": "Cannot input the value greater than 1000",
+            "levelDuplicate": "This level has already existed",
+            "speedOverlap": "Alert values can’t overlap each other",
+            "maxLengthDescription": "Maxlength of this field is 50",
+            "maxLengthMinMax": "Maxlength of this field is 4"
+        },
+        "Alert-Popup": {
+            "title": "New alert error",
+            "id": "alertPopUp",
+            "content": "Exceed maximum three alerts.",
+            "content-sync": "Device sync timed out",
+            "textYes": "OK"
+        }
+    },
+    "Weather-Station": {
+        "List": {
+            "Header": "WEATHER STATION DEVICE LIST",
+            "Link-WS": "Weather Station",
+            "Link-WS-List": "Weather Station Device List"
+        },
+        "Detail": {
+            "Header": "WEATHER STATION DEVICE DETAIL",
+            "Link-WS": "Weather Station",
+            "Link-WS-List": "Weather Station Device List",
+            "Link-WS-Detail": "Weather Station Device Detail"
+        },
+        "Alert": {
+            "Header": "WEATHER STATION ALERT SETTING",
+            "Link-WS": "Weather Station",
+            "Link-WS-Alert": "Weather Station Alert Setting",
+            "AlertName": "Alert Name",
+            "Content": "Content",
+            "Condition": "Condition",
+            "Value": "Value",
+            "Level": "Level",
+            "AddAlertButton": "ADD NEW ALERT",
+            "Select": "Select",
+            "Submit": "SUBMIT",
+            "Cancel": "CANCEL",
+            "Alert_Code": {
+                "ALR_WIND_LEVEL1": "Wind Level 1",
+                "ALR_WIND_LEVEL2": "Wind Level 2",
+                "ALR_ES_LVL1_WET_TRANSITIONAL": "Wet Transitional V=1",
+                "ALR_ES_LVL2_HUMID": "Humid V=2",
+                "ALR_ES_LVL3_WET": "Wet V=3",
+                "ALR_ES_LVL4_STREAMING_RAIN": "Streaming Rain V=4",
+                "ALR_ES_LVL5_WHITE_FROZEN": "White and frozen V=5",
+                "ALR_ES_LVL6_FROSTY": "Frosty V=6",
+                "ALR_ES_LVL7_ICY": "Icy V=7",
+                "ALR_ES_LVL8_SLEET": "Sleet V=8",
+                "ALR_ES_LVL9_HAILED": "Hailed V=9",
+                "ALR_ES_LVL10_FRESH_SNOW": "Fresh Snow V=10",
+                "ALR_ES_LVL11_MELTING_SNOW": "Melting Snow V=11",
+                "ALR_ES_LVL12_PACKED_SNOW": "Packed Snow V=12",
+                "ALR_ES_LVL13_ICE_FROZEN": "Ice with Frozen Surface V=13",
+                "ALR_ES_LVL14_FROZEN_SNOW": "Frozen Snow V=14",
+                "ALR_ES_LVL15_GRANULAR_SNOW": "Granular Snow V=15",
+                "ALR_ES_LVL16_SNOWDRIFTS": "Snowdrifts V=16"
+            },
+            "Alert_Content": {
+                "ALR_WIND_LEVEL1": "Wind >= 80km/h",
+                "ALR_WIND_LEVEL2": "Wind >= 100km/h",
+                "ALR_ES_LVL1_WET_TRANSITIONAL": "Wet transitional",
+                "ALR_ES_LVL2_HUMID": "Humid",
+                "ALR_ES_LVL3_WET": "Wet",
+                "ALR_ES_LVL4_STREAMING_RAIN": "Streaming rain",
+                "ALR_ES_LVL5_WHITE_FROZEN": "White and frozen",
+                "ALR_ES_LVL6_FROSTY": "Frosty",
+                "ALR_ES_LVL7_ICY": "Icy",
+                "ALR_ES_LVL8_SLEET": "Sleet",
+                "ALR_ES_LVL9_HAILED": "Hailed",
+                "ALR_ES_LVL10_FRESH_SNOW": "Fresh snow",
+                "ALR_ES_LVL11_MELTING_SNOW": "Melting snow",
+                "ALR_ES_LVL12_PACKED_SNOW": "Packed snow",
+                "ALR_ES_LVL13_ICE_FROZEN": "Ice with Frozen surface",
+                "ALR_ES_LVL14_FROZEN_SNOW": "Frozen snow",
+                "ALR_ES_LVL15_GRANULAR_SNOW": "Granular snow",
+                "ALR_ES_LVL16_SNOWDRIFTS": "Snowdrifts"
+            }
+        },
+        "Validation-Alert-Form": {
+            "maxLength": "Max length of this field is",
+            "required": "The (*) field is required",
+            "invalidFormat": "Wrong format. Please check again",
+            "error": "Value of Wind Level 2 must be greater than Wind Level 1",
+            "MES_Condition": "Don’t allow to setup the Wind Alert 2 with operator “<=”",
+            "DuplicateValue": "Duplicated values are not allowed",
+            "ExceedValue": "Cannot input the value greater than 1000"
+        },
+        "Popup-Info": {
+            "Update_Time": "Updated at:",
+            "Surface_Temperature": "Surface Temperature",
+            "Surface_Status": "Surface Status",
+            "Freezing_Temperature": "Freezing Temperature",
+            "Water_Film_Height": "Water Film Height",
+            "Air_Temperature": "Air Temperature",
+            "Air_Humidity": "Air Humidity",
+            "Dew_point_Temperature": "Dew-point Temperature",
+            "Precipitation_Height": "Precipitation Height",
+            "Wind_Speed_Avg": "Wind Speed (Avg. 10min)",
+            "Wind_Speed_Max": "Wind Speed (Max. 10Min)",
+            "Type_of_Precipitation": "Type of Precipitation",
+            "Intensity_of_Precipitation": "Intensity of Precipitation",
+            "Wind_Direction": "Wind Direction",
+            "Atmospheric_Pressure": "Atmospheric Pressure",
+            "Winter_Conditions_Warning": "Winter Conditions Warning",
+            "Winter_Precipitations_Warning": "Winter Precipitations Warning",
+            "Communication": "Communication",
+            "Gate_Open": "Gate Open",
+            "Door_Alarm": "Door Alarm",
+            "Power_Default": "Power Default",
+            "Show_more": "Show more"
+        }
+    },
+    "Notifier": {
+        "Device-Setting": {
+            "delete-success": "Device is successfully removed from map"
+        },
+        "Alert-Setting": {
+            "add-success": "Setup alert successfully",
+            "delete-success": "Delete alert successfully",
+            "edit-success": "Update alert successfully"
+        }
+    },
+    "Confirm-Popup": {
+        "title_device": "Remove",
+        "tooltip": "Remove from map",
+        "title_alert": "Delete alert",
+        "title_dupplicateGps": "Duplicated GPS coordinates",
+        "content_device": "Are you sure you want to remove this device from map?",
+        "content_alert": "Are you sure you want to delete this alert?",
+        "content_dupplicateGps": "The device {{Device_name}} is already assigned to these GPS coordinates. Please check again.",
+        "textYes": "CONFIRM",
+        "textYes_dupplicateGps": "OK",
+        "textNo": "CANCEL"
+    },
+    "Pagination": {
+        "previousLabel": "Back",
+        "nextLabel": "Next"
+    },
+    "Common_Validator": {
+        "maxLength": "Max length of this field is {{maxLength}}",
+        "required": "The (*) field is required",
+        "pattern": "Wrong format. Please check again",
+        "min_max": "The value must be between {{min}} and {{max}}"
+    },
+    "Map": {
+        "Set_Location": "Set Location",
+        "longitude": " Longitude",
+        "latitude": "Latitude",
+        "zoom_level": "Zoom level",
+        "map_note": {
+            "technical_issue": "Technical Issue",
+            "normal_state": "Normal State",
+            "error_state": "Error State"
+        },
+        "map_menu": {
+            "m44": "m44",
+            "traffic": "traffic",
+            "weather": "weather"
+        },
+        "Popup_Set_Location": {
+            "Title_Popup": "SELECT DEVICE",
+            "Search_Holder": "Search by device name",
+            "Button_Save": "SAVE"
+        },
+        "Confirm-Popup": {
+            "title": "CHANGE LOCATION",
+            "content": "is already registered location. Are you sure you want to change the location of this device?",
+            "textYes": "CONFIRM",
+            "textNo": "CANCEL"
+        },
+        "Location": {
+            "m44_highway": "m44 highway"
+        },
+        "Notifier": {
+            "Change_Location_Success": "Update location successfully",
+            "Set_Location_Success": "Set location successfully"
+        },
+        "Confirm_Popup_Error": {
+            "title": "Set up location error",
+            "content": "Cannot locate monitored road section. Please set up a location closer to the road.",
+            "textYes": "OK"
+        },
+        "zoomInTitle": "Zoom in",
+        "zoomOutTitle": "Zoom out",
+        "Validator": {
+            "OutOfRange_Value": "The value must be between {{min_value}} and {{max_value}}",
+            "Duplicate_Value": "The device {{Device_name}} is already assigned to these GPS coordinates. Please check again."
+        },
+        "errorRouteRequest" : "Request failed. Please contact your administrator."
+    },
+    "Menu": {
+        "left_menu": {
+            "map_view": "Map View",
+            "weather_station": {
+                "title_parent": "Weather Station",
+                "WS_List": "WS Device List",
+                "WS_Alert": "WS Alert"
+            },
+            "traffic_logger": {
+                "title_parent": "Traffic Logger",
+                "TL_List": "TL Device List",
+                "TL_Alert": "TL Alert"
+            }
+        },
+        "top_menu": {
+            "location": "Location",
+            "time_date": "Time & Date",
+            "automatic_disconnect": "Automatic Disconnect"
+        }
+    },
+    "Grid_Message": {
+        "NoSearchResult": "No search result",
+        "NoRecordsShown": "No records shown"
+    },
+    "MesureDataWeather": {
+        "surfaceStatus": {
+            "dry": "Dry",
+            "wetTransitional": "Wet transitional",
+            "humid": "Humid",
+            "wet": "Wet",
+            "streamingRain": "Streaming rain",
+            "whiteAndFrozen": "White and frozen",
+            "frosty": "Frosty",
+            "icy": "Icy",
+            "sleet": "Sleet",
+            "hailed": "Hailed",
+            "freshSnow": "Fresh Snow",
+            "meltingSnow": "Melting Snow",
+            "packedSnow": "Packed snow",
+            "iceWithFrozenSurface": "Ice with Frozen surface",
+            "frozenSnow": "Frozen Snow",
+            "granularSnow": "Granular Snow",
+            "snowdrifts": "Snowdrifts"
+        },
+        "typeOfPrecipitation": {
+            "no": "No",
+            "mist": "Mist",
+            "drizzle": "Drizzle",
+            "rain": "Rain",
+            "hail": "Hail",
+            "sleet": "Sleet",
+            "meltedPrecipitation": "Melted precipitation",
+            "drySnow": "Dry Snow",
+            "moistSnow": "Moist Snow",
+            "wetSnow": "Wet Snow"
+        },
+        "intensityOfPrecipitation": {
+            "no": "No",
+            "veryLightRain": "Very light rain",
+            "light": "Light",
+            "moderateRain": "Moderate rain",
+            "strongRain": "Strong rain"
+        },
+        "windDirection": {
+            "north": "North",
+            "northEast": "North East",
+            "east": "East",
+            "southEast": "South East",
+            "south": "South",
+            "southWest": "South West",
+            "west": "West",
+            "northWest": "North West"
+        },
+        "winterConditionsWarning": {
+            "off": "OFF",
+            "on": "ON"
+        },
+        "winterPrecipitationsWarning": {
+            "off": "OFF",
+            "on": "ON"
+        },
+        "communication": {
+            "off": "Normal",
+            "on": "Error"
+        },
+        "gateOpen": {
+            "off": "Normal",
+            "on": "Error"
+        },
+        "powerDefault": {
+            "off": "Normal",
+            "on": "Error"
+        }
+    },
+    "MesureDataTraffic": {
+        "communication": {
+            "error": "Error",
+            "normal": "Normal"
+        }
+    },
+    "Text_Common": {
+        "Cancel_Text": "Cancel",
+        "Save_Text": "Save",
+        "Edit_Text": "Edit"
+    }
+}

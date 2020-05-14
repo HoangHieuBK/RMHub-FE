@@ -1,0 +1,38 @@
+<!-- BEGIN Portlet PORTLET-->
+<div class="portlet box green-haze popup-vms">
+    <!-- BEGIN HEADER -->
+    <div class="popup-header" [ngClass]="{'green': typeActive === 'green', 'black': typeActive ==='black'}">
+        <div class="popup-header-title-text">
+            <span class="popup-header-text">Register A NEW DEVICE</span>
+        </div>
+        <div class="popup-header-title-icon">
+            <img class="popup-header-icon-popup icon-close-popup" (click)="cancelRegister()"
+                src="/assets/img/icon-close.png" alt="">
+        </div>
+    </div>
+    <!-- END HEADER -->
+    <!-- BEGIN BODY -->
+    <div class="portlet-body">
+        <div class="form-body">
+            <div class="form-group row select-device">
+                <div class="col-md-2">
+                    <span class="field-title field-title-distance device-title">Device </span>
+                </div>
+                <div class="col-md-10">
+                    <select class="form-input" [(ngModel)]="device">
+                        <option value="vms"><span>Vms</span></option>
+                        <option value="camera"><span>Camera</span></option>
+                        <option value="sos">SOS</option>
+                        <option value="weather">Weather Station</option>
+                        <option value="traffic">Traffic Logger</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="button-register">
+            <button class="button-cancel" (click)="cancelRegister()">Cancel</button>
+            <button class="button-add" (click)="createMaker()">Submit</button>
+        </div>
+    </div>
+    <!-- END BODY -->
+</div>

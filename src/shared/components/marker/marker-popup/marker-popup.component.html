@@ -1,0 +1,6 @@
+<rmhub-weather-map *ngIf="keyShowComponent === commonConstant.TITLE_TAP_MAP.weather.type" #weatherComponent
+    [deviceData]="deviceData" [alertDeviceData]="alertDeviceData">
+</rmhub-weather-map>
+<rmhub-popup-traffic *ngIf="keyShowComponent === commonConstant.TITLE_TAP_MAP.traffic.type" #trafficComponent
+    [alertDeviceData]="alertDeviceData" [deviceData]="deviceData">
+</rmhub-popup-traffic>

@@ -1,0 +1,193 @@
+<div class="wrapper-content">
+    <!-- BEGIN PAGE HEADER-->
+    <h3 class="wrapper-title">
+        {{ 'Traffic.Detail.BeginPageHeaderDetail' | translate }} {{name}}
+    </h3>
+    <div class="wrapper-bar">
+        <ul class="wrapper-breadcrumb">
+            <li>
+                <a class="breadcrumb-sub breadcrumb-sub-before" [routerLink]="['']">{{ 'Traffic.Detail.TrafficLogger' | translate }} </a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+            <li>
+                <a class="breadcrumb-sub breadcrumb-sub-before" [routerLink]="['/traffic-logger/devices']">{{ 'Traffic.Detail.TrafficLoggerDevice' | translate }}
+                </a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+            <li>
+                <a class="breadcrumb-sub breadcrumb-sub-after">
+                    {{ 'Traffic.Detail.TrafficLoggerDeviceDetail' | translate }} </a>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE HEADER-->
+    <notifier-container></notifier-container>
+    <!-- BEGIN PAGE CONTENT-->
+    <!-- beginning of form -->
+    <form novalidate [formGroup]="tlFrm">
+        <div class="row">
+            <div class="col-lg-5 col-md-5">
+                <!-- BEGIN FORM-->
+                <div class="form-body">
+                    <div class="connect-infor">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="title">
+                                        <h3 class="title-children title-underline">
+                                            {{ 'Common.Detail.ConnectionInformation' | translate }} </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">
+                                        {{ 'Common.Detail.PhysicalAddress' | translate }} </span>
+                                    <input type="text" class="form-input input-disable" formControlName="logical_address" readonly="true">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">
+                                        {{ 'Common.Detail.LogicalAddress' | translate }}</span>
+                                    <input type="text" class="form-input input-disable" formControlName="physical_address" readonly="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ws-infor-area">
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="title">
+                                        <h3 class="title-children title-underline">
+                                            {{ 'Common.Detail.DeviceInformation' | translate }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">
+                                        {{ 'Common.Detail.DeviceStatus' | translate }}</span>
+                                    <input type="text" class="form-input input-disable" [value]="status_device | translate" readonly="true">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">
+                                        {{ 'Common.Detail.Km_m' | translate }} </span>
+                                    <input type="text" class="form-input input-disable" formControlName="atKilometers" readonly="true" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">
+                                        {{ 'Common.Detail.RegistrationStatus' | translate }} </span>
+                                    <input type="text" class="form-input input-disable" [value]="registration_status | translate" readonly="true">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-input input-disable" formControlName="atMeters" readonly="true" />
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">
+                                        {{ 'Common.Detail.MotorwayManagementStation' | translate }}</span>
+                                    <input type="text" name="" class="form-input input-disable" formControlName="motorway" readonly="true" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">
+                                        {{ 'Common.Detail.LastUpdate' | translate }} </span>
+                                    <input type="text" class="form-input input-disable" readonly="true" [value]="(lastUpdate === value_na) ? value_na : lastUpdate | date:'dd/MM/yyyy HH:mm:ss.SSS'" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="title">
+                                        <ng-container *ngIf="checkEdit; else noEdit">
+                                            <div class="pull-right">
+                                                <button class="icon-edit button-icon-detail" type="button" [ngClass]="checkStatus ? '' : 'nohover'" (click)="checkStatus ? clickEditGPSCoordinate():''" [disabled]="!checkStatus" title="{{ 'Text_Common.Edit_Text'| translate }}"></button>
+                                                <button title="{{'Confirm-Popup.tooltip' | translate}}" class="icon-remove button-icon-detail" type="button" [ngClass]="checkRegistration ? '' : 'nohover'" (click)="callPopupRemove()" [disabled]="!checkRegistration || checkStatusErrorResponse" title="{{ 'Confirm-Popup.tooltip'| translate }}"></button>
+                                            </div>
+                                        </ng-container>
+                                        <ng-template #noEdit>
+                                            <div class="pull-right">
+                                                <button title="{{'Text_Common.Save_Text' | translate}}" class="icon-save button-icon-detail" type="button" (click)="editGPSCoordinate()"></button>
+                                                <button title="{{'Text_Common.Cancel_Text' | translate}}" class="icon-cancel button-icon-detail" type="button" (click)="cancelEditGPSCoordinate()" (mousedown)="disableMessageValid()" (mouseout)="enableMessageValid()"></button>
+                                            </div>
+                                        </ng-template>
+                                        <h3 class="title-children title-underline">
+                                            {{ 'Common.Detail.GPSCoordinate' | translate }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">
+                                        {{ 'Common.Detail.GPSLatitude' | translate }} </span>
+
+                                    <input type="text" #focusLat [ngClass]="checkEdit? 'form-input input-disable': 'form-input'" formControlName="latitude" [readOnly]="checkEdit" (focusout)="checkEdit ? '' : checkLatFocusOut()" [ngStyle]="{'border-color': !disableMessageLat && messageLatFocusOut ? borderColorInput : ''}"
+                                    />
+                                    <div class="text-validation">
+                                        <div *ngIf="!disableMessageLat">
+                                            <span>{{ messageLatFocusOut | translate : {min: minLat, max: maxLat} }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">
+                                        {{ 'Common.Detail.GPSLongitude' | translate }} </span>
+
+                                    <input type="text" [ngClass]="checkEdit? 'form-input input-disable': 'form-input'" formControlName="longitude" [readOnly]="checkEdit" (focusout)="checkEdit ? '' : checkLongFocusOut()" [ngStyle]="{'border-color': !disableMessageLong && messageLongFocusOut ? borderColorInput : ''}"
+                                    />
+                                    <div class="text-validation">
+                                        <div *ngIf="!disableMessageLong">
+                                            <span>{{ messageLongFocusOut | translate : {min: minLong, max: maxLong} }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wrapper-bar-marker">
+                    </div>
+                    <div class="form-group">
+                        <div class="button-group pull-right">
+                            <button type="button" class="button button-cancel" (click)="routerLink()" (mousedown)="disableMessageValid()" (mouseout)="enableMessageValid()">
+                                {{ 'Common.Detail.BACK' | translate }}</button>
+                        </div>
+                    </div>
+                    <rmhub-confirm-popup #confirmPopup [popUpModel]="popUpModel" [expandHeaderName]="traffic?.name">
+                    </rmhub-confirm-popup>
+                    <rmhub-confirm-popup #confirmPopupChangeLocation [popUpModel]="popUpModelChangeLocation" [expandHeaderName]="traffic?.name">
+                    </rmhub-confirm-popup>
+                    <rmhub-confirm-popup #confirmPopupDupplicateGPS [popUpModel]="popUpModelDupplicateGPS">
+                    </rmhub-confirm-popup>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

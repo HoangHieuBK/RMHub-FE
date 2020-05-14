@@ -1,0 +1,41 @@
+.remaining-message {
+    min-height: 50px;
+    margin-bottom: 15px;
+    border: 2px solid red;
+    display: inline-block;
+    width: 100%;
+    max-height: 120px;
+    overflow-y: auto;
+    &__btn-container {
+        float: right;
+    }
+
+    &__btn-close {
+        border: $detail-hide-grid;
+        background: $mid-button-background-transparent !important;
+        & i {
+            color: $color-text-control !important;
+        }
+    }
+
+    &__content {
+        padding: 10px;
+        display: inline-block;
+        width: 90%;
+    }
+
+    &__icon {
+        float: left;
+        color: $icon-error;
+        padding-right: 10px;
+    }
+
+    &__text {
+        float: left;
+        white-space: pre-line;
+        width: 90%;
+    }
+}
+.message-concurrency {
+  white-space: pre-line;
+}

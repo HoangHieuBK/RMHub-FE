@@ -1,0 +1,24 @@
+<div class="content">
+
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+            <rmhub-left-sidebars></rmhub-left-sidebars>
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <div class="page-content" [style.min-height]="min_height">
+                <rmhub-top-header></rmhub-top-header>
+                <!-- beginning main content -->
+                <div #sizeOfContent>
+                    <router-outlet></router-outlet>
+                </div>
+                <!-- end main content -->
+            </div>
+        </div>
+        <!-- END CONTENT -->
+    </div>
+    <!-- END CONTAINER -->
+</div>

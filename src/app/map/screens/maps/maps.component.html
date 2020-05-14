@@ -1,0 +1,8 @@
+<div id="map"></div>
+<rmhub-marker #markerComponent [(map)]="map" [(coordinateRoad)]="coordinateRoad"
+    [currentTypeDevice]="currentTypeDevice">
+</rmhub-marker>
+<rmhub-map-menu-devices #mapMenu></rmhub-map-menu-devices>
+<rmhub-map-zoom-level [currentZoomLevel]="zoomLevel"></rmhub-map-zoom-level>
+<rmhub-confirm-popup #confirmPopup [popUpModel]="popUpModel"></rmhub-confirm-popup>
+<notifier-container></notifier-container>

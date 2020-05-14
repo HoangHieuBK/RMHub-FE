@@ -1,0 +1,88 @@
+   p {
+      font-family: Lato;
+    }
+    // The container /
+    .container {
+        display: block;
+        position: relative;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-bottom: 16px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin-left: auto;
+        margin-right: auto;
+        
+    }
+    
+    // Hide the browser's default checkbox /
+    .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        left: 0;
+    }
+    
+    // Create a custom checkbox /
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 16px;
+        width: 16px;
+        background-color:rgb(255, 255, 255);
+        border: 1px solid #e5e5e5;
+    }
+    
+    // On mouse-over, add a grey background color /
+    .container:hover input ~ .checkmark {
+        border-color: #999;
+    }
+    
+    // When the checkbox is checked, add a blue background /
+    .container input:checked ~ .checkmark {
+        border-color:#999;
+    }
+    
+    // Create the checkmark/indicator (hidden when not checked) /
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    
+    // Show the checkmark when checked /
+    .container input:checked ~ .checkmark:after {
+        display: block;
+    }
+    
+    // Style the checkmark/indicator /
+    .container .checkmark:after {
+        left: 5px;
+        top: 2px;
+        width: 5px;
+        height: 10px;
+        border: solid #757575;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    // Style Label 
+     .rmh-ckb-label{
+        position: absolute;
+        left: 25px;
+        top: -2px;
+    }
+
+    .container-label-width{
+        width: auto;        
+    }
+    .container-none-label-width{
+        width: 16px;
+    }

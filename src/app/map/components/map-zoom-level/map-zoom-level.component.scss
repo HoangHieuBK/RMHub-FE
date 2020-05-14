@@ -1,0 +1,14 @@
+.map-screen-zoom {
+    position: fixed;
+    bottom: 305px;
+    right: 40px;
+    font-size: 12px;
+    line-height: 14px;
+    display: inline-flex;
+    & > .title-map-zoom{
+        color: #666666;
+    }
+    & > .value-map-zoom{
+        color: #000000;
+    }
+ }

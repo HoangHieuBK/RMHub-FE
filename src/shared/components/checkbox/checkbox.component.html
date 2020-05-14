@@ -1,0 +1,6 @@
+
+<label [ngClass]="containerClass">
+    <input type="checkbox" [value]="value" [checked]="ckbVal" (change)="toggleVisibility($event);onCkbClick.emit($event)" [disabled]="isDisable"/>
+    <span class="checkmark"></span>
+    <label *ngIf="haveLabel" class="rmh-ckb-label" [style.white-space]="whiteSpace">{{ckblabel}}</label>
+</label>

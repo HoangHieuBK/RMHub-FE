@@ -1,0 +1,147 @@
+<div class="wrapper-content">
+    <div>
+        <!-- BEGIN PAGE HEADER-->
+        <h3 class="wrapper-title">
+            {{ 'Traffic.List.BEGINPAGEHEADER' | translate }}
+        </h3>
+        <div class="wrapper-bar">
+            <ul class="wrapper-breadcrumb">
+                <li>
+                    <a class="breadcrumb-sub breadcrumb-sub-before" [routerLink]="['']">{{ 'Traffic.List.TrafficLogger' | translate}}</a>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </li>
+                <li>
+                    <a class="breadcrumb-sub breadcrumb-sub-after">{{ 'Traffic.List.TrafficLoggerDeviceList' | translate}}</a>
+                </li>
+            </ul>
+        </div>
+        <!-- END PAGE HEADER-->
+        <!-- BEGIN PAGE CONTENT-->
+        <div class="row" [ngStyle]="{'opacity': !showContent? 0.7 : 1}">
+            <div class="col-md-12">
+                <!-- BEGIN EXAMPLE TABLE -->
+                <div class="portlet-body">
+                    <div class="table-toolbar">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <span class="table-showing" [ngStyle]="updateStyleShowing()">{{ 'Common.List.Showing' | translate }}</span>
+                                <select class="table-select combobox-showing" (change)="changeItemsPerPage($event.target.value)">
+                                    <ng-container *ngFor="let record of RECORD_OF_A_PAGE">
+                                        <option value="{{record}}" [selected]="configPagination?.itemsPerPage===record">
+                                            {{record}}</option>
+                                    </ng-container>
+
+                                </select>
+                                <span class="table-records"> {{ 'Common.List.record' | translate}} </span>
+                            </div>
+                            <div class="col-xs-12 col-sm-8">
+                                <button class="button-refresh button-left pull-right" (click)="refreshALL()" #sync_data onclick="document.getElementById('mySearch').value=''"> <img class="icon-img-button"
+                                        alt=""
+                                        src="/assets/icon/icon-refresh.png">{{ 'Common.List.REFRESH' | translate}}</button>
+                                <div class="table-search pull-right">
+                                    <div class="table-search-content">
+                                        <input type="text" class="form-control table-search-input" [(ngModel)]="keyword" placeholder="{{ 'Common.List.placeHolder' | translate}}" (keyup.enter)="enterSearch($event.target.value)" id="mySearch">
+                                        <a class="table-search-icon" type="btn" (click)="searchByKeyword()">
+                                            <img src="/assets/icon/search.png" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div [ngStyle]="setScroll">
+                        <!-- begin table -->
+                        <table class="table table-striped table-bordered table-hover rmhub-table table-fixed-header" id="sample_1">
+                            <thead>
+                                <tr class="background-tr devices-header">
+                                    <th class="no-device">
+                                        <span class="text-color">{{ 'Common.List.No' | translate}}.</span>
+                                    </th>
+                                    <th class="device-name" (click)="sortData('name')">
+                                        <span class=" pull-left text-color padding-left">{{ 'Common.List.DeviceName' | translate}}</span>
+                                        <span class="pull-right fa spa-padding" [ngClass]="{'fa-sort': sortName['name'] == null,'fa-sort-desc': sortName['name'] == true, 'fa-sort-asc' : sortName['name']==false}"></span>
+                                    </th>
+                                    <th class="device-status" (click)="sortData('status')">
+                                        <span class=" pull-left text-color">
+                                            {{ 'Common.List.DeviceStatus' | translate}}
+                                        </span>
+                                        <span class="pull-right fa spa-padding" [ngClass]="{'fa-sort': sortName['status'] == null,'fa-sort-desc': sortName['status'] == true, 'fa-sort-asc' : sortName['status']==false}"></span>
+                                    </th>
+                                    <th class="registration" (click)="sortData('registration')">
+                                        <span class=" pull-left text-color">
+                                            {{ 'Common.List.RegistrationStatus' | translate}} </span>
+                                        <span class="pull-right fa spa-padding" [ngClass]="{'fa-sort': sortName['registration'] == null,'fa-sort-desc': sortName['registration'] == true, 'fa-sort-asc' : sortName['registration']==false}"></span>
+                                    </th>
+                                    <th class="last-update" (click)="sortData('lastUpdate')">
+                                        <span class=" pull-left text-color"> {{ 'Common.List.LastUpdate' | translate}}
+                                        </span>
+                                        <span class="pull-right fa spa-padding" [ngClass]="{'fa-sort': sortName['lastUpdate'] == null,'fa-sort-desc': sortName['lastUpdate'] == true, 'fa-sort-asc' : sortName['lastUpdate']==false}"></span>
+                                    </th>
+
+                                    <th colspan="1" class="action-th">
+                                        <span class="text-color"> {{ 'Common.List.Action' | translate}} </span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody #devices_content>
+                                <tr *ngFor="let traffic of traffics | paginate: configPagination; let i = index">
+                                    <td class="item-align">
+                                        {{ configPagination.itemsPerPage * (configPagination.currentPage - 1) + i + 1 }}
+                                    </td>
+                                    <td>
+                                        <a class="color_a" (click)="DetailTrafficLogger(traffic.id)"><span
+                                                class="">{{traffic.name}}</span></a>
+                                    </td>
+                                    <td>
+                                        <span class="" [innerHTML]="setStatus(traffic.status) | translate"></span>
+                                    </td>
+                                    <td class="">
+                                        <span class="" [innerHTML]="setRegistration(traffic.registration) | translate"></span>
+                                    </td>
+                                    <td>
+                                        <span class="">{{traffic.lastUpdate | date: 'dd/MM/yyyy HH:mm:ss.SSS'}}</span>
+                                    </td>
+                                    <td class="action-td">
+                                        <a title="{{ 'Confirm-Popup.tooltip'| translate }}" class="icon-remove" [ngClass]="traffic.registration === 'Registered'? '' : 'nohover'" (click)="getTrafficById(traffic.id, traffic)"></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ng-container *ngIf="traffics?.length !== 0">
+                        <div class="row" id="block_container">
+                            <div class="col-xs-12 col-sm-5 align-records">
+                                <div [ngStyle]="{'display': checkEmptyRecords? 'none': ''}">
+                                    <p class="table-entries">{{ 'Common.List.show' | translate }} {{configPagination.beginItemPerPage}} {{ 'Common.List.to' | translate }} {{configPagination.endItemPerPage}} {{ 'Common.List.of' | translate }} {{totalRecord}} {{ 'Common.List.records'
+                                        | translate }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-7 item-left" [ngStyle]="{'display': checkEmptyRecords? 'none': ''}">
+                                <pagination-controls responsive="true" maxSize=6 nextLabel="{{'Pagination.nextLabel' | translate}}" previousLabel="{{'Pagination.previousLabel' | translate}}" class="my-pagination" (pageChange)="getPagination($event)"></pagination-controls>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="traffics?.length === 0">
+                        <div class="no-record" [ngStyle]="{'display': !checkEmptyRecords? 'none': ''}">
+                            <ng-container *ngIf="checkActionSearch; else norecord">
+                                <span> {{ 'Common.List.noSearchResult' | translate}}</span>
+                            </ng-container>
+                            <ng-template #norecord>
+                                <span> {{ 'Common.List.noRecordShown' | translate}}</span>
+                            </ng-template>
+                        </div>
+                    </ng-container>
+
+                    <rmhub-confirm-popup #confirmPopup [popUpModel]="popUpModel" [expandHeaderName]="trafficLogger?.name"></rmhub-confirm-popup>
+                    <rmhub-confirm-popup #confirmPopup [popUpModel]="popUpModelSyncData"></rmhub-confirm-popup>
+                    <button #alertModal data-target="#alertSync" data-toggle="modal" style="display: none"></button>
+                </div>
+                <!-- END EXAMPLE TABLE -->
+            </div>
+            <notifier-container></notifier-container>
+        </div>
+    </div>
+    <rmhub-loader *ngIf="!showContent"></rmhub-loader>
+</div>

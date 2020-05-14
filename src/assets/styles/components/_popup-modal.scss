@@ -1,0 +1,22 @@
+.popup-modal-img {
+  width: 64px;
+  height: 64px;
+}
+
+.popup-modal-img {
+  border: 3px solid #38ab58;
+  box-sizing: border-box;
+}
+
+.popup-grid {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(9, 64px);
+}
+
+.popup-padding-td {
+  background: none;
+  box-shadow: none;
+  padding: 0px !important;
+  height: 64px !important;
+}

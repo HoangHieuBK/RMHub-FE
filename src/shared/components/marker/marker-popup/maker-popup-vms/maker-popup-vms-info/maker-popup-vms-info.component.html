@@ -1,0 +1,62 @@
+<!-- BEGIN Portlet PORTLET-->
+<div class="portlet box green-haze" #vmsInfoElement>
+   <div class="portlet-title portlet-title-popup">
+      <div class="caption caption-popup">
+         <label style="font-size: 13px;">PR 61+880 jobb - S_61_880_Jobb</label>
+      </div>
+   </div>
+   <div class="portlet-body" style="">
+      <div class="text-center">
+         <label for="" class="form-control link-info"
+            style="text-decoration: underline; font-size: 10px; color: #44b6ae; border: 4px solid #dcbfbf;"
+            (click)="showInfo()">---
+            INFORMATION ---</label>
+      </div>
+      <div *ngIf="showTable">
+         <table class="table" style="background-color: #9bb2b3">
+            <tr>
+               <td style="width: 50%; color: green; text-transform: uppercase">display change</td>
+               <td class="text-center" style="width: 50%;background-color: #757070; color: white">11/04/2019 15:05:27
+               </td>
+            </tr>
+            <tr>
+               <td style="color: green; text-transform: uppercase">status changing</td>
+               <td class="text-center" style="background-color: #757070; color: white">11/04/2019 15:05:27</td>
+            </tr>
+         </table>
+      </div>
+      <div class="box-info">
+         <form>
+            <div class="row">
+               <div class="col-md-7">
+                  <div class="form-group">
+                     <input type="text" class="form-control input-sm input-customer" id="exampleInputEmail1" value=""
+                        readonly>
+                  </div>
+                  <div class="form-group">
+                     <input type="text" class="form-control input-sm input-customer" id="exampleInputPassword1"
+                        value="DRIVE SLOWLY" readonly>
+                  </div>
+                  <div class="form-group">
+                     <input type="text" class="form-control input-sm input-customer" id="exampleInputPassword1"
+                        value="ACCIDENT AT 12 KM" readonly>
+                  </div>
+               </div>
+               <div class="col-md-5">
+                  <div class="pull-left" style="width: 60px; height: 60px; background-color: black; margin-top: 30px">
+                     &nbsp;
+                  </div>
+                  <div class="pull-right" style="width: 60px; height: 60px; background-color: black; margin-top: 30px">
+                     &nbsp;
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+      <div class="box-bottom">
+         <button class="btn btn-xs btn-info">Command</button>
+         <button class="btn btn-xs btn-success">Status</button>
+      </div>
+   </div>
+</div>
+<!-- END Portlet PORTLET-->

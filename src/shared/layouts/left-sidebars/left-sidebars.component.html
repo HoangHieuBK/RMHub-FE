@@ -1,0 +1,41 @@
+<div class="page-sidebar navbar-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    <ul #withOfLeftBar class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true"
+        data-slide-speed="200">
+        <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+        <li class="sidebar-toggler-wrapper box-logo">
+            <div class="box-sidebar-toggler">
+                <i class="icon-menu" aria-hidden="true" [ngClass]="{'hidden' : isChoseToggler}">
+                    <img src="assets/img/lillyneir-logo.png" alt="">
+                </i>
+                <div class="sidebar-toggler"
+                    [ngStyle]="{'background': 'url(' + imgSidebarToggler + ')  no-repeat 0 0' }"
+                    (click)="eventSidebarToggler()">
+                </div>
+            </div>
+        </li>
+        <ng-container *ngFor="let nav of navbar;index as i ">
+            <li [id]="nav.type" [ngClass]="{'mapView': i===0, 'open menu-color': currentTypeDevice && nav.type && currentTypeDevice === nav.type }">
+                <a [routerLink]="currentTypeDevice === titleMap? '/map' : ''" [id]="nav.type" (click)="changeMenu(nav.type,i)">
+                    <i class="icon-menu" aria-hidden="true">
+                        <img [src]="nav?.icon_img" alt="">
+                    </i>
+                    <span class="title">{{nav.title | translate}}</span>
+                    <span [id]="nav.type + '_icon_open'" [ngClass]="{'open': currentTypeDevice && nav.type && currentTypeDevice === nav.type, 'arrow': nav.children.length > 0}">
+                    </span>
+                </a>
+                <ul class="sub-menu">
+                    <li *ngFor="let sub of nav.children" (click)="changeMenu(nav.type)"
+                        [ngClass]="{'active': !(sub?.url) ? false : (router.isActive(sub?.url,true)? true : activeSubTabMenu(sub?.url))}">
+                        <a routerLink="/{{sub?.url}}" [ngClass]="{'disable-element': sub?.url? false : true}">
+                            <i class="{{sub?.icon}}" aria-hidden="true"></i>
+                            {{sub?.name | translate}}
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ng-container>
+
+    </ul>
+    <!-- END SIDEBAR MENU -->
+</div>

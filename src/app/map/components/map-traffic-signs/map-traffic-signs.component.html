@@ -1,0 +1,47 @@
+<div class="modal fade" [(id)]="id">
+    <div class="modal-dialog-customs modal-dialog-custom-img">
+        <div class="modal-content">
+            <div class="popup-header" [ngClass]="{'green': typeActive === 'green', 'black': typeActive ==='black'}">
+                <div class="popup-header-title-text">
+                    <img class="popup-header-edit-icon" src="../../../assets/icon/icon-edit.png" alt="" />
+                    <span class="popup-header-text">COMMAND</span>
+                </div>
+                <div class="popup-header-title-icon">
+                    <img class="popup-header-icon-popup icon-close-popup" src="/assets/img/icon-close.png"
+                        data-dismiss="modal" alt="">
+                </div>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr class="popup-grid">
+                        <td class="popup-padding-td" *ngFor="let img1 of arr_img; let i=index ; let first = first"
+                            (click)="getImg1(i)" [ngClass]="{'active': currentActive === i && currentActive != 0}">
+
+                            <div *ngIf="first; else elseBlock" class="groups-img">
+                                <img [ngClass]="{'popup-modal-img': img1.choose}" src="{{img1.path}}" alt=""
+                                    class="img-traffic-signs">
+                                <span class="glyphicon glyphicon-plus img-plus"
+                                    ></span>
+                            </div>
+                            <ng-template #elseBlock>
+                                <div>
+                                    <img [ngClass]="{'popup-modal-img': img1.choose}" src="{{img1.path}}" alt=""
+                                    class="img-traffic-signs">
+                                </div>
+                            </ng-template>
+
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button (click)="onBtnSaveCommandClickL()" type="button" class="button btn-submit" data-dismiss="modal">
+                    SAVE</button>
+                <button type="button" class="button btn-cancel" data-dismiss="modal"> CANCEL</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

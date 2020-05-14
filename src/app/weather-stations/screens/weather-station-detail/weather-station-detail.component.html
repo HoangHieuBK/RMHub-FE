@@ -1,0 +1,191 @@
+<div class="wrapper-content">
+    <!-- BEGIN PAGE HEADER-->
+    <h3 class="wrapper-title">
+        {{ 'Weather-Station.Detail.Header' | translate }} {{weather.name}}
+    </h3>
+    <div class="wrapper-bar">
+        <ul class="wrapper-breadcrumb">
+            <li>
+                <a class="breadcrumb-sub breadcrumb-sub-before" [routerLink]="['']">{{ 'Weather-Station.Detail.Link-WS' | translate }}</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+            <li>
+                <a class="breadcrumb-sub breadcrumb-sub-before" [routerLink]="['/' + wsDevicesLink]"> {{ 'Weather-Station.Detail.Link-WS-List' | translate }}</a>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </li>
+            <li>
+                <a class="breadcrumb-sub breadcrumb-sub-after"> {{ 'Weather-Station.Detail.Link-WS-Detail' | translate }}</a>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE HEADER-->
+
+    <!-- BEGIN PAGE CONTENT-->
+    <!-- beginning of form -->
+    <form novalidate [formGroup]="wsFrm">
+        <div class="row">
+            <div class="col-lg-5 col-md-5">
+                <!-- BEGIN FORM-->
+                <div class="form-body">
+                    <div class="connect-infor">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="title">
+                                        <h3 class="title-children title-underline">{{ 'Common.Detail.ConnectionInformation' | translate }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">{{ 'Common.Detail.PhysicalAddress' | translate }} </span>
+                                    <input type="text" class="form-input input-disable" formControlName="physical_address" readonly="true">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">{{ 'Common.Detail.LogicalAddress' | translate }} </span>
+                                    <input type="text" class="form-input input-disable" formControlName="logical_address" readonly="true">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ws-infor-area">
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="title">
+                                        <h3 class="title-children title-underline">{{ 'Common.Detail.DeviceInformation' | translate }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">
+                                            {{ 'Common.Detail.DeviceStatus' | translate }}</span>
+                                    <input type="text" class="form-input input-disable"
+                                        [value]="setStatus(weather?.status) === naValue? weather.status : translateStatus(setStatus(weather?.status)) | translate" readonly="true">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">
+                                            {{ 'Common.Detail.Km_m' | translate }} </span>
+                                    <input type="text" class="form-input input-disable" formControlName="atKilometers" readonly="true" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">{{ 'Common.Detail.RegistrationStatus' | translate }} </span>
+                                    <input type="text" class="form-input input-disable"
+                                        [value]="weather?.registration === naValue? weather.registration : translateRegistration(weather.registration) | translate" readonly="true">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-input input-disable" formControlName="atMeters" readonly="true" />
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">{{ 'Common.Detail.MotorwayManagementStation' | translate }}</span>
+                                    <input type="text" name="" class="form-input input-disable" formControlName="motorway" readonly="true" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">
+                                            {{ 'Common.Detail.LastUpdate' | translate }} </span>
+                                    <input type="text" class="form-input input-disable"
+                                        [value]="weather.lastUpdate !== naValue? ( weather.lastUpdate | date :'dd/MM/yyyy HH:mm:ss.SSS') : naValue" readonly="true" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gps_coordinate">
+                        <div class="row ">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="title">
+                                        <h3 class="title-children title-underline">{{ 'Common.Detail.GPSCoordinate' | translate }}</h3>
+                                        <div class="action-gps pull-right" *ngIf="!isEditGps">
+                                            <button class="icon-edit icon-edit-gps" [ngClass]="isEditable(weather)? '' : 'nohover'" (click)="editGPSDevice()" title="{{ 'Text_Common.Edit_Text'| translate }}"></button>
+                                            <button class="icon-remove icon-delete-gps" type="button" [disabled]="checkErrorGetDetailDevice(weather)" [ngClass]="isDeletable(weather)? '' : 'nohover'"
+                                            data-toggle="modal" [attr.data-target]="checkErrorGetDetailDevice(weather)? '' : '#popupDeleteWSDetail'" (click)="deleteWS()"
+                                            title="{{ 'Confirm-Popup.tooltip'| translate }}"></button>
+                                        </div>
+                                        <div class="change-gps pull-right" *ngIf="isEditGps">
+                                            <button class="icon-save-change" (click)="saveChange()" title="{{'Text_Common.Save_Text' | translate}}"
+                                                    data-toggle="modal" [attr.data-target]="checkErrorGetDetailDevice(weather)? '' : '#setLocationWSDetail'"></button>
+                                            <button class="icon-cancel-change" (click)="cancelChangeEditGps()" title="{{'Text_Common.Cancel_Text' | translate}}"
+                                                (mousedown)="disableValidator()" (mouseout)="enableValidator()"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">{{ 'Common.Detail.GPSLatitude' | translate }} </span>
+                                    <input #latInput type="text" class="form-input" [ngClass]="isEditGps? '' : 'input-disable'" formControlName="latitude"
+                                        [readonly]="isEditGps? false : true" (focusout)="latitudeFocusOut()"
+                                        [ngStyle]="{'border-color': !hideMessageLongValid && messageLatValid || outOfRangeLatMess? borderColorInput : ''}" />
+                                    <!-- validator Value -->
+                                    <div class="text-validation">
+                                        <span *ngIf="!messageLatValid">{{outOfRangeLatMess | translate: {min_value: min_value_lat, max_value: max_value_lat} }}</span>
+                                        <ng-container *ngIf="!hideMessageLatValid">
+                                            <span>{{messageLatValid | translate}}</span>
+                                        </ng-container>
+                                    </div>
+                                    <!-- end of validator Value -->
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="field-title field-title-distance">{{ 'Common.Detail.GPSLongitude' | translate }} </span>
+                                    <input type="text" class="form-input" [ngClass]="isEditGps? '' : 'input-disable'" formControlName="longitude"
+                                        [readonly]="isEditGps? false : true" (focusout)="longitudeFocusOut()"
+                                        [ngStyle]="{'border-color': !hideMessageLongValid && messageLongValid || outOfRangeLongMess? borderColorInput : ''}"/>
+                                    <!-- validator Value -->
+                                    <div class="text-validation">
+                                        <span *ngIf="!messageLongValid">{{outOfRangeLongMess | translate: {min_value: min_value_long, max_value: max_value_long} }}</span>
+                                        <ng-container *ngIf="!hideMessageLongValid">
+                                            <span>{{messageLongValid | translate}}</span>
+                                        </ng-container>
+                                    </div>
+                                    <!-- end of validator Value -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wrapper-bar-marker">
+                    </div>
+                    <div class="form-group">
+                        <div class="button-group pull-right">
+                            <button type="button" class="button button-cancel" (click)="routerLink()" (mousedown)="disableValidator()" (mouseout)="enableValidator()">
+                                {{ 'Common.Detail.BACK' | translate }}</button>
+                        </div>
+                    </div>
+                    <rmhub-confirm-popup #confirmPopup [popUpModel]="popUpModel" [expandHeaderName]="isEditGps? '' : weather?.name"></rmhub-confirm-popup>
+                    <rmhub-confirm-popup [popUpModel]="popupAlert"></rmhub-confirm-popup>
+                </div>
+            </div>
+            <notifier-container></notifier-container>
+        </div>
+    </form>
+</div>

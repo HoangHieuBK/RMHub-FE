@@ -1,0 +1,104 @@
+$txt-color: #ffffff;
+
+/*CSS modal center follow horizontally & vertically */
+
+.rmhub-modal {
+    text-align: center;
+}
+
+.rmhub-modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.rmhub-modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+/*end css modal center*/
+
+
+/*icon close modal*/
+
+.rmhub-modal-close {
+    width: 15px;
+    height: 15px;
+    background-image: url(/assets/img/icon-close.png) !important;
+    opacity: 1;
+}
+
+
+/*end close modal*/
+
+.portlet.box.green-haze.popup-vms-green {
+    border: none;
+}
+
+.portlet.box.green-haze.popup-vms-black {
+    border: none;
+}
+
+.green {
+    background-color: $color-green;
+}
+
+.black {
+    background-color: $color-grey;
+}
+
+.popup-header {
+    vertical-align: middle;
+    padding: 8px 10px;
+    height: 30px;
+    border-radius: 3px 3px 0 0;
+    &-title-text {
+        float: left;
+        height: 14px;
+        line-height: 16px;
+        font-size: 14px;
+        font-family: 'Roboto';
+        font-weight: 500;
+        color: $color-white;
+        &>.text-center-cmr {
+            color: $txt-color;
+        }
+    }
+    &-title-icon {
+        float: right;
+        margin-top: -2px;
+    }
+    &-icon-popup {
+        width: 14px;
+        height: 14px;
+    }
+    &-refresh-icon {
+        margin-right: 15px;
+    }
+    &-edit-icon {
+        padding-right: 10px;
+        padding-bottom: 5px;
+    }
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: none;
+    box-shadow: none;
+}
+
+.popup-traffic, .popup-weather {
+    margin-bottom: 0px;
+}
+
+.custom-popup .leaflet-popup-content {
+    margin: 0px;
+}
+.map-form-popup{
+    margin-bottom: 0px;
+}

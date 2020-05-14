@@ -1,0 +1,12 @@
+#map {
+    height: 93vh;
+    z-index: 0;
+ }
+
+ .modal-custom.in .modal-dialog-custom {
+    transform: translate(0, 50vh) translate(0, -50%);
+ }
+
+ .modal-edit {
+    transform: translate(0, 50vh) translate(0, -50%);
+ }

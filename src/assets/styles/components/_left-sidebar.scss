@@ -1,0 +1,103 @@
+$bgrd-color : #272738;
+$bgrd-color-selected : #1B3F71;
+$color-selected : #FFFFFF;
+$color-item : #ADB9C8;
+$bgrd-item-selected : #1B1B28;
+$bgrd-logo : #171724;
+.arrow-icon{
+    float: right;
+    text-align: center;
+    margin-top: -1px;
+    margin-right: -5px;
+  }
+.page-sidebar .page-sidebar-menu li > a > .arrow:before,
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu li > a > .arrow:before {
+    font-size: 20px;
+  content: "\f106";
+}
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li:hover > a, 
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.open > a, 
+.page-sidebar .page-sidebar-menu > li:hover > a, .page-sidebar .page-sidebar-menu > li.open > a {
+    background: $bgrd-color-selected;
+    color : $color-selected;
+}
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover, .page-sidebar {
+  background-color: $bgrd-color;
+}
+.page-sidebar-closed .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu:hover .sub-menu, .page-sidebar-closed
+.page-sidebar .page-sidebar-menu:hover .sub-menu {
+  background-color: $bgrd-color;
+}
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .sidebar-toggler, .page-sidebar .sidebar-toggler {
+  background-image:none ;
+  background-repeat: no-repeat;
+  float: right;
+  text-align: center;
+  // margin-top: 1px;
+  margin-right: -10px;
+  transform: translate(0, -40%);
+  -webkit-transform: translate(0, -40%);
+  margin-left: 5px;
+}
+.box-sidebar-toggler{
+  display: block;
+  position: relative;
+  margin: 0;
+  border: 0px;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 300;
+}
+// @media (min-width: 992px){
+// .page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed .sidebar-toggler {
+//      margin-right: -10px; 
+//   }
+.page-sidebar-closed .page-sidebar .page-sidebar-menu.page-sidebar-menu-closed > li.sidebar-toggler-wrapper .sidebar-toggler {
+  margin-right: -10px;
+}
+// }
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li > a,
+.page-sidebar .page-sidebar-menu > li > a {
+  border-top: none;
+  color: $color-item;
+  height: 44px;
+}
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover,
+.page-sidebar {
+  background-color: $bgrd-color;
+}
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li:hover > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.open > a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu > li.active > a,
+.page-sidebar .page-sidebar-menu .sub-menu > li:hover > a,
+.page-sidebar .page-sidebar-menu .sub-menu > li.open > a,
+.page-sidebar .page-sidebar-menu .sub-menu > li.active > a {
+  background:$bgrd-item-selected !important;
+  color: $color-selected;
+}
+.page-sidebar .page-sidebar-menu .sub-menu,
+.page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu .sub-menu {
+  margin: auto;
+  li {
+    a {
+      padding: 10px 15px 10px 37px;
+      i {
+        font-size: 5px;
+        vertical-align: middle;
+        text-align: left;
+      }
+    }
+  } 
+}
+.box-logo{
+  height: 50px;
+  background: $bgrd-logo;
+}
+@media (min-width: 992px){
+  .page-sidebar {
+    width: 250px;
+  }
+  .page-content-wrapper .page-content {
+    margin-left: 250px;
+    padding: 0px;
+  }
+}

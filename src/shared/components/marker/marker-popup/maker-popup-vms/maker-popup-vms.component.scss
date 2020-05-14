@@ -1,0 +1,48 @@
+.portlet.box.green-haze.popup-vms {
+  border: none;
+  border-top: 0;
+  width: 300px;
+}
+
+.text-uppercase {
+  font-family: Roboto;
+  padding-left: 10px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #FFFF00;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+}
+
+.icon-info-vms {
+  margin-right: 15px;
+}
+
+.portlet.box > .portlet-body {
+  padding: 0px;
+  background-color: #000000;
+}
+
+table {
+  margin: 0;
+  padding: 0;
+}
+
+.table-bordered,
+.table-bordered tr td {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-collapse: collapse;
+  background-color: #000000;
+  padding: 0px !important;
+  vertical-align: middle;
+}
+
+.width-img {
+  width: 69px;
+  height: 69px;
+}
+img {
+  width: inherit;
+}

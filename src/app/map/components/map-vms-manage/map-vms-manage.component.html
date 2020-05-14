@@ -1,0 +1,177 @@
+<div class="modal fade" id="vms-template">
+    <div class="modal-dialog modal-dialog-custom-template">
+        <div>
+            <div class="portlet box "
+                [ngClass]="{'popup-vms-green': typeActive === 'green', 'popup-vms-black': typeActive !=='black'}">
+                <div class="popup-header" [ngClass]="{'green': typeActive === 'green', 'black': typeActive ==='black'}">
+                    <div class="popup-header-title-text">
+                        <img class="popup-header-edit-icon" src="../../../assets/icon/icon-edit.png" alt="" />
+                        <span class="popup-header-text">VMS INFORMATION</span>
+                    </div>
+                    <div class="popup-header-title-icon">
+                        <img src="../../../assets/icon/icon-close.png" alt="" data-dismiss="modal" #closeModal />
+                    </div>
+                </div>
+                <div class="portlet-bodys">
+                    <div class="body-vsm-template row">
+                        <div class="col-md-6">
+                            <div class="template-left">
+                                <div class="template-title ">
+                                    List Template
+                                </div>
+                                <div class="template-content-left">
+                                    <ul *ngFor="let item of ar; let i=index" (click)="chooseActive(i)"
+                                        [ngClass]="{'active': item.active == true, 'not-active': item.active != true }">
+                                        <li><img src="../../../assets/icon/icon-folder.png" alt=""> <span
+                                                class="img-sign">{{item.line}}</span>
+                                            <span class="glyphicon pull-right"
+                                                [ngClass]="{'glyphicon-minus': item.show == true, 'glyphicon-plus': item.show != true }"
+                                                (click)="showFolder(i)">
+                                            </span>
+                                        </li>
+                                        <ng-container *ngIf="item.list.length>0">
+
+                                            <ul *ngFor="let item2 of item.list; let j = index"
+                                                [ngClass]="{'show': item.show == true, 'hidden': item.show != true }">
+                                                <li><img src="../../../assets/icon/icon-folder.png" alt=""><span
+                                                        class="img-sign">{{item2.child1}}</span> <span
+                                                        class="glyphicon glyphicon-plus pull-right"></span></li>
+                                                <ng-container *ngIf="item2.list2.length>0">
+                                                    <ul *ngFor="let item3 of item2.list2"
+                                                        (click)="chooseActiveChild(i,j)"
+                                                        [ngClass]="{'active-child': item2.active == true, 'not-active-child': item2.active != true }">
+                                                        <li (click)="templateShow()">
+                                                            <img src="/assets/icon/icon-file.png" alt=''>
+                                                            {{item3.child2}}</li>
+                                                    </ul>
+                                                </ng-container>
+                                            </ul>
+                                        </ng-container>
+                                    </ul>
+                                </div>
+
+                                <div class="template-footer row">
+                                    <div class="col-md-6">
+                                        <div class="pull-left row">
+                                            <div class="col-md-2 add-folder">
+                                                <img src="/assets/icon/icon-add-folder.png" alt="" />
+                                            </div>
+                                            <div class="col-md-4 add-file">
+                                                <img src="/assets/icon/icon-add-file.png" alt="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 template-footer-right">
+                                        <div class="pull-right ">
+                                            <img src="/assets/icon/Vector.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="template-right">
+                                <div class="template-title">
+                                    Portal Template
+                                </div>
+                                <div class="template-content-right">
+                                    <div class="checkbox-template">
+                                        <rmhub-checkbox [labelText]="'EB001AVMS01 '"></rmhub-checkbox>
+                                    </div>
+                                    <div class="checkbox-template">
+                                        <rmhub-checkbox [labelText]="'EB001AVMS01 '"></rmhub-checkbox>
+                                    </div>
+                                    <div class="checkbox-template">
+                                        <rmhub-checkbox [labelText]="'EB001AVMS01 '"></rmhub-checkbox>
+                                    </div>
+                                    <div class="checkbox-template">
+                                        <rmhub-checkbox [labelText]="'EB001AVMS01 '"></rmhub-checkbox>
+                                    </div>
+                                    <div class="checkbox-template">
+                                        <rmhub-checkbox [labelText]="'EB001AVMS01 '"></rmhub-checkbox>
+                                    </div>
+                                    <div class="checkbox-template">
+                                        <rmhub-checkbox [labelText]="'EB001AVMS01 '"></rmhub-checkbox>
+                                    </div>
+                                    <div class="checkbox-template">
+                                        <rmhub-checkbox [labelText]="'EB001AVMS01 '"></rmhub-checkbox>
+                                    </div>
+                                    <div class="checkbox-template">
+                                        <rmhub-checkbox [labelText]="'EB001AVMS01 '"></rmhub-checkbox>
+                                    </div>
+                                </div>
+                                <div class="checkbox-template-footer">
+                                    <rmhub-checkbox [labelText]="'Check all Portal '"></rmhub-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body"
+                    [ngClass]="{'show': isCheckTemplate == true, 'hidden': isCheckTemplate == false}">
+                    <div class="form-group row">
+                        <label class="col-lg-3 popup-text-label">DISPLAY MODE :</label>
+                        <div class="col-lg-9 bs-select ">
+                            <select class="form-input combobox">
+                                <option>Fixed</option>
+                                <option>Alternating</option>
+                                <option>Blinking</option>
+                                <option>Blank</option>
+                                <option>Neutral</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 popup-text-label">BRIGHTNESS :</label>
+                        <div class="col-lg-9 bs-select">
+                            <select class="form-input combobox">
+                                <option>Automatic</option>
+                                <option>Night</option>
+                                <option>Day</option>
+                                <option>Over bright</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row content-group ">
+                        <div class=" col-lg-3 img-align" *ngIf="editData.imgR">
+                            <img data-toggle="modal" href="#modal-img-left" [src]="editData.imgL" alt="" width="137px"
+                                height="137px">
+                        </div>
+                        <div class="input-group popup-input-padding col-lg-6">
+                            <div class="input-message">
+                                <input type="text" class="form-input popup-input-text" placeholder="input message 1..."
+                                    maxlength="23" (keyup)="onKey($event)" [(ngModel)]="editData.input1" />
+                            </div>
+                            <div class="input-message">
+                                <input type="text" class="form-input popup-input-text" placeholder="input message 2..."
+                                    maxlength="23" [(ngModel)]="editData.input2" />
+                            </div>
+                            <div class="input-message">
+                                <input type="text" class="form-input popup-input-text" placeholder="input message 3..."
+                                    maxlength="23" [(ngModel)]="editData.input3" />
+                            </div>
+                            <div class="align pull-right">
+                                <img class="icon-aligns" src="../../../assets/icon/icon-align-left.png" alt="">
+                                <img class="icon-aligns" src="../../../assets/icon/icon-align-center.png" alt="">
+                                <img class="icon-aligns" src="../../../assets/icon/icon-align-right.png" alt="">
+                            </div>
+                        </div>
+                        <div class=" col-lg-3 img-align-right" *ngIf="editData.imgR">
+                            <img data-toggle="modal" href="#modal-img-right" [src]="editData?.imgR" alt="">
+                        </div>
+                    </div>
+                    <div class="align ">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button (click)="onBtnSaveCommandClickR()" type="button" class="button btn-submit"
+                        data-dismiss="modal">
+                        APPLY</button>
+                    <button type="button" class="button btn-cancel" data-dismiss="modal"> CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

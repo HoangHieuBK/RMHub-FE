@@ -1,0 +1,16 @@
+<div class="dropdown">
+    <div class="text-header-down input-selected">
+        <button class="value-selected" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" [ngStyle]="{'border-color': highlighBorder? borderColorInput : ''}">
+            <span class="text-selected" *ngIf="valueSlt === null"> - {{ 'Weather-Station.Alert.Select' | translate }} -</span>
+            <span class="text-selected" *ngIf="valueSlt !== null">{{ valueSlt }}</span>
+            <i class="fa fa-sort-desc select-icon-sort" aria-hidden="true"></i>
+        </button>
+        <div class="dropdown-menu item-select-menu" aria-labelledby="dropdownMenuButton">
+            <ng-container *ngFor="let item of selectItemContent let i=index">
+                <button class="dropdown-item" (click)="selectedItem(item)" [ngStyle]="{'background': colorSelectItem[i]}"
+                [disabled]="item === disable">{{ 'Weather-Station.Alert.Level' | translate}} {{item}}</button>
+            </ng-container>
+        </div>
+    </div>
+</div>

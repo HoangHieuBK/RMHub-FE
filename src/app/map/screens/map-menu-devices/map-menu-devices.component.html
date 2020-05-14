@@ -1,0 +1,20 @@
+<div class="map-menu">
+    <ul>
+        <ng-container *ngFor="let arrMenu of arrayMenuMap">
+
+            <div
+                *ngIf="arrMenu.type === commonConstant.TITLE_TAP_MAP.traffic.type || arrMenu.type === commonConstant.TITLE_TAP_MAP.map.type|| arrMenu.type === commonConstant.TITLE_TAP_MAP.weather.type; then thenBlock else elseBlock">
+            </div>
+            <ng-template #thenBlock>
+                <li (click)="mapMenu(arrMenu?.type)" class="map-menu-li">
+                    <a [ngClass]="{'active': currentTypeDevice == arrMenu.type }">{{arrMenu?.name | translate}}</a>
+                </li>
+            </ng-template>
+            <ng-template #elseBlock>
+                <li class="map-menu-li">
+                    <a [ngClass]="{'active': currentTypeDevice == arrMenu.type }">{{arrMenu?.name|translate}}</a>
+                </li>
+            </ng-template>
+        </ng-container>
+    </ul>
+</div>

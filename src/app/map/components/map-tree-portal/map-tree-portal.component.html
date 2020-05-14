@@ -1,0 +1,50 @@
+<div class="template-title ">
+    List Template
+</div>
+<div class="template-content-left">
+
+    <ul *ngFor="let item of ar; let i=index" (click)="chooseActive(i)"
+        [ngClass]="{'active': item.active == true, 'not-active': item.active != true }">
+        <li><img src="../../../assets/icon/icon-folder.png" alt=""> <span class="name-folder">{{item.line}}</span>
+            <span class="glyphicon pull-right"
+                [ngClass]="{'glyphicon-minus': item.show == true, 'glyphicon-plus': item.show != true }"
+                (click)="showFolder(i)">
+            </span>
+        </li>
+        <ng-container *ngIf="item.list.length>0">
+
+            <ul *ngFor="let item2 of item.list; let j = index"
+                [ngClass]="{'show': item.show == true, 'hidden': item.show != true }">
+                <li><img src="../../../assets/icon/icon-folder.png" alt=""><span class="name-folder">{{item2.child1}}</span> <span
+                        class="glyphicon glyphicon-plus pull-right"></span></li>
+                <ng-container *ngIf="item2.list2.length>0">
+                    <ul *ngFor="let item3 of item2.list2" (click)="chooseActiveChild(i,j)"
+                        [ngClass]="{'active-child': item2.active == true, 'not-active-child': item2.active != true }">
+                        <li (click)="templateShow()">
+                            <img src="/assets/icon/icon-file.png" alt=''>
+                            {{item3.child2}}</li>
+                    </ul>
+                </ng-container>
+
+            </ul>
+        </ng-container>
+    </ul>
+
+</div>
+<div class="template-footer row">
+    <div class="col-md-6">
+        <div class="pull-left row">
+            <div class="col-md-2 add-folder">
+                <img src="/assets/icon/icon-add-folder.png" alt="" />
+            </div>
+            <div class="col-md-4 add-file">
+                <img src="/assets/icon/icon-add-file.png" alt="" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 template-footer-right">
+        <div class="pull-right ">
+            <img src="/assets/icon/Vector.png" alt="" />
+        </div>
+    </div>
+</div>
